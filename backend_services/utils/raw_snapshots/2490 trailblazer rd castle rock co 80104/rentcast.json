@@ -1,0 +1,95 @@
+{
+  "id": "2490-Trailblazer-Way,-Castle-Rock,-CO-80109",
+  "formattedAddress": "2490 Trailblazer Way, Castle Rock, CO 80109",
+  "addressLine1": "2490 Trailblazer Way",
+  "addressLine2": null,
+  "city": "Castle Rock",
+  "state": "CO",
+  "stateFips": "08",
+  "zipCode": "80109",
+  "county": "Douglas",
+  "countyFips": "035",
+  "latitude": 39.389968,
+  "longitude": -104.896062,
+  "propertyType": "Single Family",
+  "bedrooms": 4,
+  "bathrooms": 4,
+  "squareFootage": 3060,
+  "lotSize": 7231,
+  "yearBuilt": 2010,
+  "assessorID": "R0458466",
+  "legalDescription": "LOT 11 BLOCK 30 THE MEADOWS FLG 16 - PARCELS 1, 2, 3 & 4 0.166 AM/L",
+  "subdivision": "MEADOWS THE",
+  "lastSaleDate": "2018-12-07T00:00:00.000Z",
+  "lastSalePrice": 536500,
+  "features": {
+    "cooling": true,
+    "coolingType": "Central",
+    "exteriorType": "Aluminum / Vinyl Siding",
+    "fireplace": true,
+    "floorCount": 2,
+    "garage": true,
+    "garageType": "Garage",
+    "heating": true,
+    "heatingType": "Central",
+    "roofType": "Tile"
+  },
+  "taxAssessments": {
+    "2022": {
+      "year": 2022,
+      "value": 37520,
+      "land": 8500,
+      "improvements": 29020
+    },
+    "2023": {
+      "year": 2023,
+      "value": 54600,
+      "land": 12040,
+      "improvements": 42560
+    },
+    "2024": {
+      "year": 2024,
+      "value": 54600,
+      "land": 12040,
+      "improvements": 42560
+    }
+  },
+  "propertyTaxes": {
+    "2022": {
+      "year": 2022,
+      "total": 3813
+    },
+    "2023": {
+      "year": 2023,
+      "total": 5359
+    },
+    "2024": {
+      "year": 2024,
+      "total": 5310
+    }
+  },
+  "history": {
+    "2018-12-07": {
+      "event": "Sale",
+      "date": "2018-12-07T00:00:00.000Z",
+      "price": 536500
+    }
+  },
+  "owner": {
+    "names": [
+      "MURRAY E AND LAUREL A JOHNS TRUST"
+    ],
+    "type": "Organization",
+    "mailingAddress": {
+      "id": "2490-Trailblazer-Way,-Castle-Rock,-CO-80109",
+      "formattedAddress": "2490 Trailblazer Way, Castle Rock, CO 80109",
+      "addressLine1": "2490 Trailblazer Way",
+      "addressLine2": null,
+      "city": "Castle Rock",
+      "state": "CO",
+      "stateFips": "08",
+      "zipCode": "80109"
+    }
+  },
+  "ownerOccupied": true
+}

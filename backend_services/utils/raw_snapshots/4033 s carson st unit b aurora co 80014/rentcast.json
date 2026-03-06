@@ -1,0 +1,104 @@
+{
+  "id": "4033-S-Carson-St,-Unit-B,-Aurora,-CO-80014",
+  "formattedAddress": "4033 S Carson St, Unit B, Aurora, CO 80014",
+  "addressLine1": "4033 S Carson St",
+  "addressLine2": "Unit B",
+  "city": "Aurora",
+  "state": "CO",
+  "stateFips": "08",
+  "zipCode": "80014",
+  "county": "Arapahoe",
+  "countyFips": "005",
+  "latitude": 39.643945,
+  "longitude": -104.823775,
+  "propertyType": "Condo",
+  "bedrooms": 4,
+  "bathrooms": 3,
+  "squareFootage": 1732,
+  "lotSize": 871,
+  "yearBuilt": 1997,
+  "assessorID": "2073-06-3-57-002",
+  "legalDescription": "SUBDIVISIONCD 022210 SUBDIVISIONNAME ESTATES AT MEADOW HILLS CONDOMINIUMS PH I BLOCK 004 LOT 00B UNIT B BLDG 4 AS PER CONDO D",
+  "subdivision": "ESTATES AT MEADOW HILLS CONDOMINIUMS PH",
+  "lastSaleDate": "2019-10-30T00:00:00.000Z",
+  "lastSalePrice": 315500,
+  "features": {
+    "architectureType": "Condo / Apartment",
+    "cooling": true,
+    "coolingType": "Central",
+    "exteriorType": "Other",
+    "fireplace": true,
+    "floorCount": 2,
+    "foundationType": "Other",
+    "garage": true,
+    "garageType": "Basement",
+    "heating": true,
+    "heatingType": "Forced Air",
+    "roofType": "Composition Shingle",
+    "unitCount": 1
+  },
+  "taxAssessments": {
+    "2020": {
+      "year": 2020,
+      "value": 24990
+    },
+    "2021": {
+      "year": 2021,
+      "value": 23659
+    },
+    "2022": {
+      "year": 2022,
+      "value": 22998
+    },
+    "2023": {
+      "year": 2023,
+      "value": 33819
+    },
+    "2024": {
+      "year": 2024,
+      "value": 29808
+    }
+  },
+  "propertyTaxes": {
+    "2019": {
+      "year": 2019,
+      "total": 1743
+    },
+    "2021": {
+      "year": 2021,
+      "total": 1688
+    },
+    "2022": {
+      "year": 2022,
+      "total": 1677
+    },
+    "2023": {
+      "year": 2023,
+      "total": 2075
+    }
+  },
+  "history": {
+    "2019-10-30": {
+      "event": "Sale",
+      "date": "2019-10-30T00:00:00.000Z",
+      "price": 315500
+    }
+  },
+  "owner": {
+    "names": [
+      "Ann M Baker"
+    ],
+    "type": "Individual",
+    "mailingAddress": {
+      "id": "4033-S-Carson-St,-Aurora,-CO-80014",
+      "formattedAddress": "4033 S Carson St, Aurora, CO 80014",
+      "addressLine1": "4033 S Carson St",
+      "addressLine2": null,
+      "city": "Aurora",
+      "state": "CO",
+      "stateFips": "08",
+      "zipCode": "80014"
+    }
+  },
+  "ownerOccupied": true
+}

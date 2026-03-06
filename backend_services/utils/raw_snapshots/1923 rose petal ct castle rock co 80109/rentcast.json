@@ -1,0 +1,88 @@
+{
+  "id": "1923-Rose-Petal-Ct,-Castle-Rock,-CO-80109",
+  "formattedAddress": "1923 Rose Petal Ct, Castle Rock, CO 80109",
+  "addressLine1": "1923 Rose Petal Ct",
+  "addressLine2": null,
+  "city": "Castle Rock",
+  "state": "CO",
+  "stateFips": "08",
+  "zipCode": "80109",
+  "county": "Douglas",
+  "countyFips": "035",
+  "latitude": 39.387659,
+  "longitude": -104.883054,
+  "propertyType": "Single Family",
+  "bedrooms": 4,
+  "bathrooms": 4,
+  "squareFootage": 3541,
+  "lotSize": 8494,
+  "yearBuilt": 2002,
+  "assessorID": "R0425653",
+  "legalDescription": "LOT 12 BLK 5 RED HAWK #2 0.195 AM/L",
+  "subdivision": "RED HAWK",
+  "lastSaleDate": "2023-05-09T00:00:00.000Z",
+  "lastSalePrice": 930000,
+  "features": {
+    "cooling": true,
+    "coolingType": "Central",
+    "exteriorType": "Aluminum / Vinyl Siding",
+    "fireplace": true,
+    "floorCount": 2,
+    "garage": true,
+    "garageType": "Attached",
+    "heating": true,
+    "heatingType": "Central",
+    "roofType": "Composition Shingle",
+    "roomCount": 5,
+    "unitCount": 1
+  },
+  "taxAssessments": {
+    "2023": {
+      "year": 2023,
+      "value": 60890,
+      "land": 13120,
+      "improvements": 47770
+    },
+    "2024": {
+      "year": 2024,
+      "value": 60890,
+      "land": 13120,
+      "improvements": 47770
+    }
+  },
+  "propertyTaxes": {
+    "2023": {
+      "year": 2023,
+      "total": 3548
+    },
+    "2024": {
+      "year": 2024,
+      "total": 3963
+    }
+  },
+  "history": {
+    "2023-05-09": {
+      "event": "Sale",
+      "date": "2023-05-09T00:00:00.000Z",
+      "price": 930000
+    }
+  },
+  "owner": {
+    "names": [
+      "Peter Martijn Maas",
+      "Amanda Joy Maas"
+    ],
+    "type": "Individual",
+    "mailingAddress": {
+      "id": "1923-Rose-Petal-Ct,-Castle-Rock,-CO-80109",
+      "formattedAddress": "1923 Rose Petal Ct, Castle Rock, CO 80109",
+      "addressLine1": "1923 Rose Petal Ct",
+      "addressLine2": null,
+      "city": "Castle Rock",
+      "state": "CO",
+      "stateFips": "08",
+      "zipCode": "80109"
+    }
+  },
+  "ownerOccupied": true
+}

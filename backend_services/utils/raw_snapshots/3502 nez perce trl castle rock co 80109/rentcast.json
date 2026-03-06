@@ -1,0 +1,105 @@
+{
+  "id": "3502-Nez-Perce-Trl,-Castle-Rock,-CO-80109",
+  "formattedAddress": "3502 Nez Perce Trl, Castle Rock, CO 80109",
+  "addressLine1": "3502 Nez Perce Trl",
+  "addressLine2": null,
+  "city": "Castle Rock",
+  "state": "CO",
+  "stateFips": "08",
+  "zipCode": "80109",
+  "county": "Douglas",
+  "countyFips": "035",
+  "latitude": 39.398635,
+  "longitude": -104.901556,
+  "propertyType": "Single Family",
+  "bedrooms": 3,
+  "bathrooms": 3,
+  "squareFootage": 1491,
+  "lotSize": 1089,
+  "yearBuilt": 2008,
+  "assessorID": "R0450797",
+  "legalDescription": "LOT 171 MEADOWS NO 11 PARCEL 5 0.025 AM/L",
+  "subdivision": "MEADOWS THE",
+  "lastSaleDate": "2025-08-11T00:00:00.000Z",
+  "lastSalePrice": 480000,
+  "hoa": {
+    "fee": 445
+  },
+  "features": {
+    "architectureType": "Split Level",
+    "cooling": true,
+    "coolingType": "Central",
+    "exteriorType": "Aluminum / Vinyl Siding",
+    "fireplace": true,
+    "floorCount": 2,
+    "garage": true,
+    "garageType": "Garage",
+    "heating": true,
+    "heatingType": "Central",
+    "roofType": "Composition Shingle"
+  },
+  "taxAssessments": {
+    "2022": {
+      "year": 2022,
+      "value": 22530,
+      "land": 1670,
+      "improvements": 20860
+    },
+    "2023": {
+      "year": 2023,
+      "value": 32520,
+      "land": 5450,
+      "improvements": 27070
+    },
+    "2024": {
+      "year": 2024,
+      "value": 32520,
+      "land": 5450,
+      "improvements": 27070
+    }
+  },
+  "propertyTaxes": {
+    "2022": {
+      "year": 2022,
+      "total": 2290
+    },
+    "2023": {
+      "year": 2023,
+      "total": 3035
+    },
+    "2024": {
+      "year": 2024,
+      "total": 3007
+    }
+  },
+  "history": {
+    "2021-05-25": {
+      "event": "Sale",
+      "date": "2021-05-25T00:00:00.000Z",
+      "price": 405000
+    },
+    "2025-08-11": {
+      "event": "Sale",
+      "date": "2025-08-11T00:00:00.000Z",
+      "price": 480000
+    }
+  },
+  "owner": {
+    "names": [
+      "Brian Goliszewski",
+      "Emily Goliszewski"
+    ],
+    "type": "Individual",
+    "mailingAddress": {
+      "id": "3502-Nez-Perce-Trl,-Castle-Rock,-CO-80109",
+      "formattedAddress": "3502 Nez Perce Trl, Castle Rock, CO 80109",
+      "addressLine1": "3502 Nez Perce Trl",
+      "addressLine2": null,
+      "city": "Castle Rock",
+      "state": "CO",
+      "stateFips": "08",
+      "zipCode": "80109"
+    }
+  },
+  "ownerOccupied": true
+}

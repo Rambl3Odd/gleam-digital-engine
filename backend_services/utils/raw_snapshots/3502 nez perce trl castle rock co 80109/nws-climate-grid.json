@@ -1,0 +1,112 @@
+{
+  "@context": [
+    "https://geojson.org/geojson-ld/geojson-context.jsonld",
+    {
+      "@version": "1.1",
+      "wx": "https://api.weather.gov/ontology#",
+      "s": "https://schema.org/",
+      "geo": "http://www.opengis.net/ont/geosparql#",
+      "unit": "http://codes.wmo.int/common/unit/",
+      "@vocab": "https://api.weather.gov/ontology#",
+      "geometry": {
+        "@id": "s:GeoCoordinates",
+        "@type": "geo:wktLiteral"
+      },
+      "city": "s:addressLocality",
+      "state": "s:addressRegion",
+      "distance": {
+        "@id": "s:Distance",
+        "@type": "s:QuantitativeValue"
+      },
+      "bearing": {
+        "@type": "s:QuantitativeValue"
+      },
+      "value": {
+        "@id": "s:value"
+      },
+      "unitCode": {
+        "@id": "s:unitCode",
+        "@type": "@id"
+      },
+      "forecastOffice": {
+        "@type": "@id"
+      },
+      "forecastGridData": {
+        "@type": "@id"
+      },
+      "publicZone": {
+        "@type": "@id"
+      },
+      "county": {
+        "@type": "@id"
+      }
+    }
+  ],
+  "id": "https://api.weather.gov/points/39.3986,-104.9016",
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -104.9016,
+      39.3986
+    ]
+  },
+  "properties": {
+    "@id": "https://api.weather.gov/points/39.3986,-104.9016",
+    "@type": "wx:Point",
+    "cwa": "BOU",
+    "type": "land",
+    "forecastOffice": "https://api.weather.gov/offices/BOU",
+    "gridId": "BOU",
+    "gridX": 65,
+    "gridY": 46,
+    "forecast": "https://api.weather.gov/gridpoints/BOU/65,46/forecast",
+    "forecastHourly": "https://api.weather.gov/gridpoints/BOU/65,46/forecast/hourly",
+    "forecastGridData": "https://api.weather.gov/gridpoints/BOU/65,46",
+    "observationStations": "https://api.weather.gov/gridpoints/BOU/65,46/stations",
+    "relativeLocation": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.853546,
+          39.376075
+        ]
+      },
+      "properties": {
+        "city": "Castle Rock",
+        "state": "CO",
+        "distance": {
+          "unitCode": "wmoUnit:m",
+          "value": 4829.9275200034
+        },
+        "bearing": {
+          "unitCode": "wmoUnit:degree_(angle)",
+          "value": 301
+        }
+      }
+    },
+    "forecastZone": "https://api.weather.gov/zones/forecast/COZ041",
+    "county": "https://api.weather.gov/zones/county/COC035",
+    "fireWeatherZone": "https://api.weather.gov/zones/fire/COZ241",
+    "timeZone": "America/Denver",
+    "radarStation": "KFTG",
+    "astronomicalData": {
+      "sunrise": "2026-03-06T06:22:57-07:00",
+      "sunset": "2026-03-06T17:58:34-07:00",
+      "transit": "2026-03-06T12:10:46-07:00",
+      "civilTwilightBegin": "2026-03-06T05:57:32-07:00",
+      "civilTwilightEnd": "2026-03-06T18:24:00-07:00",
+      "nauticalTwilightBegin": "2026-03-06T05:26:28-07:00",
+      "nauticalTwilightEnd": "2026-03-06T18:55:04-07:00",
+      "astronomicalTwilightBegin": "2026-03-06T04:55:15-07:00",
+      "astronomicalTwilightEnd": "2026-03-06T19:26:16-07:00"
+    },
+    "nwr": {
+      "transmitter": "WNG550",
+      "sameCode": "008035",
+      "areaBroadcast": "https://api.weather.gov/radio/WNG550/broadcast",
+      "pointBroadcast": "https://api.weather.gov/points/39.3986,-104.9016/radio"
+    }
+  }
+}

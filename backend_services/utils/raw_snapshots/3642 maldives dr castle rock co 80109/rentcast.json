@@ -1,0 +1,95 @@
+{
+  "id": "3642-Maldives-Dr,-Castle-Rock,-CO-80109",
+  "formattedAddress": "3642 Maldives Dr, Castle Rock, CO 80109",
+  "addressLine1": "3642 Maldives Dr",
+  "addressLine2": null,
+  "city": "Castle Rock",
+  "state": "CO",
+  "stateFips": "08",
+  "zipCode": "80109",
+  "county": "Douglas",
+  "countyFips": "035",
+  "latitude": 39.399909,
+  "longitude": -104.889998,
+  "propertyType": "Single Family",
+  "bedrooms": 3,
+  "bathrooms": 3,
+  "squareFootage": 1797,
+  "lotSize": 1917,
+  "yearBuilt": 2021,
+  "assessorID": "R0497265",
+  "legalDescription": "LOT 7A BLOCK 3 MEADOWS 20 PHASE 1 AMD 14 0.044 AM/L",
+  "subdivision": "MEADOWS THE",
+  "lastSaleDate": "2021-05-27T00:00:00.000Z",
+  "lastSalePrice": 474000,
+  "features": {
+    "cooling": true,
+    "coolingType": "Central",
+    "exteriorType": "Aluminum / Vinyl Siding",
+    "floorCount": 3,
+    "garage": true,
+    "garageType": "Garage",
+    "heating": true,
+    "heatingType": "Central",
+    "roofType": "Composition Shingle"
+  },
+  "taxAssessments": {
+    "2022": {
+      "year": 2022,
+      "value": 28630,
+      "land": 4580,
+      "improvements": 24050
+    },
+    "2023": {
+      "year": 2023,
+      "value": 39790,
+      "land": 5940,
+      "improvements": 33850
+    },
+    "2024": {
+      "year": 2024,
+      "value": 39790,
+      "land": 5940,
+      "improvements": 33850
+    }
+  },
+  "propertyTaxes": {
+    "2022": {
+      "year": 2022,
+      "total": 2910
+    },
+    "2023": {
+      "year": 2023,
+      "total": 3800
+    },
+    "2024": {
+      "year": 2024,
+      "total": 3765
+    }
+  },
+  "history": {
+    "2021-05-27": {
+      "event": "Sale",
+      "date": "2021-05-27T00:00:00.000Z",
+      "price": 474000
+    }
+  },
+  "owner": {
+    "names": [
+      "Andrew J Cochran",
+      "Erica L Cochran"
+    ],
+    "type": "Individual",
+    "mailingAddress": {
+      "id": "3642-Maldives-Dr,-Castle-Rock,-CO-80109",
+      "formattedAddress": "3642 Maldives Dr, Castle Rock, CO 80109",
+      "addressLine1": "3642 Maldives Dr",
+      "addressLine2": null,
+      "city": "Castle Rock",
+      "state": "CO",
+      "stateFips": "08",
+      "zipCode": "80109"
+    }
+  },
+  "ownerOccupied": true
+}
