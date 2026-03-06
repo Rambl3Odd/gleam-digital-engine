@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "version": "3.1",
+    "description": "Gleam Master SKU Generator Schema - Single Source of Truth (Merged & Corrected)",
+    "format": "{Market}.{ServiceID}.{VTM_1}.{VTM_2}...{VTM_N}"
+  },
+  "markets": {
+    "DEN": "Colorado Front Range",
+    "POR": "Pacific Northwest"
+  },
+  "services": [
+    {"id": "WIN-EXT", "name": "Exterior Windows", "vtms": ["FA", "HL", "SL", "AD"]},
+    {"id": "WIN-INT", "name": "Interior Windows", "vtms": ["FA", "HL", "SL", "AD"]},
+    {"id": "SCR-CLN", "name": "Screen Cleaning", "vtms": []},
+    {"id": "SCR-SEAL", "name": "Screen Sealing", "vtms": []},
+    {"id": "TRK-CLN", "name": "Track Cleaning", "vtms": []},
+    {"id": "GLS-HWR", "name": "Glass Restoration: HW Stain", "vtms": ["FA"]},
+    {"id": "GLS-HWM", "name": "Glass Restoration: HW Mitigation", "vtms": ["FA"]},
+    {"id": "SKY-CLN", "name": "Skylight Cleaning", "vtms": []},
+    {"id": "HW-SFT", "name": "House Wash (Soft)", "vtms": ["HL", "MA", "CT", "AD"]},
+    {"id": "HW-PRS", "name": "House Wash (Pressure)", "vtms": ["HL", "MA", "CT", "AD"]},
+    {"id": "RF-WSH", "name": "Roof Wash", "vtms": ["PT", "MA", "CT"]},
+    {"id": "CON-WSH", "name": "Driveway / Concrete / Patio", "vtms": ["CT"]},
+    {"id": "DK-WSH", "name": "Deck Wash", "vtms": ["CT", "AD"]},
+    {"id": "FNC-WSH", "name": "Fence Wash", "vtms": ["MA", "CT", "AD"]},
+    {"id": "PAV-WSH", "name": "Paver Wash", "vtms": ["CT", "AD"]},
+    {"id": "GUT-CLN", "name": "Gutter Cleaning", "vtms": ["HL", "SL", "AD", "PT"]},
+    {"id": "DRY-CLN", "name": "Dryer Vent Cleaning", "vtms": ["VL", "BN"]},
+    {"id": "SOL-CLN", "name": "Solar Panel Cleaning", "vtms": ["HL", "PT", "CT", "AD"]},
+    {"id": "SOL-INSP", "name": "Solar Panel Inspection", "vtms": ["HL", "PT"]},
+    {"id": "SOL-BRD", "name": "Solar Panel Bird Guard", "vtms": ["HL", "PT"]}
+  ],
+  "vtm_codes": {
+    "FA": [
+      {"code": "FA1", "desc": "Standard Pane"},
+      {"code": "FA2", "desc": "Large Format"},
+      {"code": "FA3", "desc": "Non-Standard / French"},
+      {"code": "FA4", "desc": "Egress / Obstructed"},
+      {"code": "FA5", "desc": "Skylight / Roof Access"}
+    ],
+    "HL": [
+      {"code": "HL1", "desc": "1 Story"},
+      {"code": "HL2", "desc": "2 Stories"},
+      {"code": "HL3", "desc": "3 Stories"}
+    ],
+    "SL": [
+      {"code": "SL1", "desc": "Light Soil / Standard"},
+      {"code": "SL2", "desc": "Moderate Soil"},
+      {"code": "SL3", "desc": "Heavy Soil"}
+    ],
+    "AD": [
+      {"code": "AD1", "desc": "Standard Access"},
+      {"code": "AD2", "desc": "Obstructed Access"},
+      {"code": "AD3", "desc": "Steep / Difficult Access"}
+    ],
+    "PT": [
+      {"code": "PT1", "desc": "Flat (0-2/12)"},
+      {"code": "PT2", "desc": "Low Slope (3-5/12)"},
+      {"code": "PT3", "desc": "Moderate (6-8/12)"}
+    ],
+    "MA": [
+      {"code": "MA1", "desc": "Standard (Asphalt/Fiber Cement)"},
+      {"code": "MA2", "desc": "Porous (Tile/Wood)"},
+      {"code": "MA3", "desc": "Non-Porous (Metal/Vinyl)"},
+      {"code": "MA4", "desc": "Membrane/Other"}
+    ],
+    "CT": [
+      {"code": "CT1", "desc": "Light Contamination"},
+      {"code": "CT2", "desc": "Moderate Contamination"},
+      {"code": "CT3", "desc": "Heavy Contamination"}
+    ],
+    "VL": [
+      {"code": "VL1", "desc": "Standard Length (<15 ft, 0-2 bends)"},
+      {"code": "VL2", "desc": "Moderate Length (15-25 ft, 2-3 bends)"},
+      {"code": "VL3", "desc": "Code-Noncompliant (>35 ft equiv)"}
+    ],
+    "BN": [
+      {"code": "BN0", "desc": "No Bird Nest"},
+      {"code": "BN1", "desc": "Bird Nest Present"}
+    ]
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "schema_version": "gleam_bookinghub_servicem8_v1",
+  "source": "Gleam Central Booking Hub V6.3_GOLDEN_MAXED_TEST",
+  "environment": "TEST",
+  "request_id": "5c8b6c85-1e38-4a89-9b4a-3c1d7b2d2b13",
+  "created_at": "2026-02-25T18:22:11.000Z",
+
+  "customer_core": {
+    "market": "DEN",
+    "full_name": "Maxed Out Testcustomer",
+    "first_name": "Maxed",
+    "last_name": "Testcustomer",
+    "email": "maxed.testcustomer@gleamtest.com",
+    "phone": "303-999-1234",
+
+    "address_street": "777 Unique Mapping Blvd",
+    "address_city": "Castle Rock",
+    "address_state": "CO",
+    "address_postcode": "80109",
+    "address_country": "United States",
+
+    "property_type": "Residential",
+    "referral_source": "Nextdoor",
+    "gleam_on_plan": "Premium (Annual) – Test",
+    "is_primary_contact": true
+  },
+
+  "contact": {
+    "firstName": "Maxed",
+    "lastName": "Testcustomer",
+    "email": "maxed.testcustomer@gleamtest.com",
+    "phone": "303-999-1234",
+    "referral_source": "Nextdoor"
+  },
+
+  "property": {
+    "street": "777 Unique Mapping Blvd",
+    "city": "Castle Rock",
+    "state": "CO",
+    "zip": "80109",
+    "country": "United States",
+    "type": "Residential"
+  },
+
+  "marketing_attribution": {
+    "source": "GoogleAds",
+    "medium": "cpc",
+    "campaign": "spring_promo_golden",
+    "term": "window cleaning castle rock",
+    "content": "ad_variant_A",
+    "gclid": "TEST-GCLID-123"
+  },
+
+  "booking": {
+    "quote_type": "Official Quote",
+    "date": "2026-09-15",
+    "window": "1:00 PM - 3:00 PM"
+  },
+
+  "details": {
+    "homeSize_sqft": 4500,
+    "stories": "3",
+    "panes_total": 120,
+    "openings_total": 70,
+
+    "soiling_level_code": "SL.3",
+    "soiling_level_label": "Heavy",
+    "access_difficulty_code": "AD.3",
+    "access_difficulty_label": "Complex",
+    "height_level_code": "HL.3",
+    "height_level_label": "3 Story",
+
+    "feature_access_code": "FA.3",
+    "feature_access_label": "Non-Standard / French",
+
+    "roofing_material_type": "Composite Shingle",
+    "roof_navigability": "Steep / No Roof Access",
+    "siding_material_type": "Stucco",
+    "fencing_material_type": "Cedar",
+
+    "terrain_slope_percent": 18,
+    "ladder_hazards": true,
+    "walk_out_basement": true
+  },
+
+  "pricing_governance": {
+    "setup_fee_standard": 60.0,
+    "minimum_job_value": 125.0,
+    "discount_cap_percent": 20,
+    "setup_fee_waiver_rule": "ONLY_BRIGHT_BLOCK"
+  },
+
+  "bright_block": {
+    "qualified": true,
+    "neighbor_job_count": 2,
+    "notes": "Bright Block qualified: co-located neighbor bookings (mobilization shared)"
+  },
+
+  "financials": {
+    "currency": "USD",
+
+    "service_subtotal": 2662.5,
+    "setup_fee_applied": 0.0,
+    "setup_fee_waived_reason": "BRIGHT_BLOCK",
+
+    "discount_type_applied": "GLEAM_ON_TIER",
+    "discount_percent_applied": 15,
+    "discount_amount": 399.38,
+
+    "final_price_pre_floor": 2263.12,
+    "minimum_job_floor_applied": false,
+    "final_price": 2263.12
+  },
+
+  "upsells": {
+    "flagged_csv": "Glass Hard-Water Restoration, Hard-Water Mitigation Sealant, Skylight Cleaning, Roof Wash, House Wash (Soft), Fence Wash",
+    "recommended_upsells_zero_qty": [
+      { "service_id": "GLS-HWR", "qty": 0, "unit_price": 10.5, "unit": "pane" },
+      { "service_id": "GLS-HWM", "qty": 0, "unit_price": 2.5, "unit": "sq ft" },
+      { "service_id": "SKY-CLN", "qty": 0, "unit_price": 15.0, "unit": "unit" },
+      { "service_id": "RF-WSH", "qty": 0, "unit_price": 1.19, "unit": "sq ft" },
+      { "service_id": "HW-SFT", "qty": 0, "unit_price": 1.04, "unit": "sq ft" },
+      { "service_id": "FNC-WSH", "qty": 0, "unit_price": 1.25, "unit": "ln ft" }
+    ]
+  },
+
+  "notes": {
+    "client_note_raw": "🏡 PROPERTY DETAILS:\nResidential\n4500 sqft\n3 stories\nSlope: 18% (ladder hazards)\nBright Block qualified\nGleam-On Premium Annual",
+    "job_note_raw": "⚠️ DISPATCH SAFETY & SETUP:\n3-story work; ladder hazards; walk-out basement\nRoof: steep/no roof access\nStucco siding; cedar fence\nSoiling: heavy\nUpsells to pitch: HW restoration + sealant, skylights, roof wash\n",
+
+    "client_note_flat": "🏡 PROPERTY DETAILS - Residential - 4500 sqft - 3 stories - Slope: 18% (ladder hazards) - Bright Block qualified - Gleam-On Premium Annual",
+    "job_note_flat": "⚠️ DISPATCH SAFETY & SETUP - 3-story work; ladder hazards; walk-out basement - Roof: steep/no roof access - Stucco siding; cedar fence - Soiling: heavy - Upsells to pitch: HW restoration + sealant, skylights, roof wash",
+
+    "dispatch_briefing_llm_input": {
+      "homeSizeSqFt": "4500",
+      "stories": "3",
+      "heightLevel": "HL.3",
+      "soilingLevel": "SL.3",
+      "accessDifficulty": "AD.3",
+      "featureAccess": "FA.3",
+      "terrainSlopePercent": "18",
+      "upsellsFlaggedCsv": "Glass Hard-Water Restoration, Hard-Water Mitigation Sealant, Skylight Cleaning, Roof Wash, House Wash (Soft), Fence Wash"
+    }
+  },
+
+  "badges": [
+    "591c95a8-3e9c-48c7-ac3a-21658933c9cb",
+    "153a6ffd-1958-4304-99d8-23df8c62c47b",
+    "b82f6aaf-01f1-4b35-8d6d-216581441a8b",
+    "5843f453-3f41-4c2f-99a5-21658610911b",
+    "e9b9ab7a-efc7-4216-a5b7-23df87b73c0b",
+    "73b8fd8c-64f2-45b3-8784-21658bded84b",
+    "df8dba84-a745-4328-9345-2165882b6d1b",
+    "3be842ca-2568-4f1e-9a1c-23df84d7dd8b",
+    "e237b2c2-1ca1-4cce-8df7-2165843659bb",
+    "e9879f25-cafa-45a4-bc6d-216587c56cbb",
+    "ecd1f488-5ef8-4294-aa98-21658689417b",
+    "dc2bd557-7d63-405e-9460-2266ed1b25db"
+  ],
+
+  "badges_string": "[\"591c95a8-3e9c-48c7-ac3a-21658933c9cb\",\"153a6ffd-1958-4304-99d8-23df8c62c47b\",\"b82f6aaf-01f1-4b35-8d6d-216581441a8b\",\"5843f453-3f41-4c2f-99a5-21658610911b\",\"e9b9ab7a-efc7-4216-a5b7-23df87b73c0b\",\"73b8fd8c-64f2-45b3-8784-21658bded84b\",\"df8dba84-a745-4328-9345-2165882b6d1b\",\"3be842ca-2568-4f1e-9a1c-23df84d7dd8b\",\"e237b2c2-1ca1-4cce-8df7-2165843659bb\",\"e9879f25-cafa-45a4-bc6d-216587c56cbb\",\"ecd1f488-5ef8-4294-aa98-21658689417b\",\"dc2bd557-7d63-405e-9460-2266ed1b25db\"]",
+
+  "line_items": [
+    {
+      "name": "Exterior Windows",
+      "service_id": "WIN-EXT",
+      "tracking_sku": "DEN.WIN-EXT.HL3.SL3.AD3.FA3",
+      "unit": "pane",
+      "qty": 120,
+      "unit_price": 3.0,
+      "line_price": 360.0,
+      "modifiers": { "HL": "HL.3", "SL": "SL.3", "AD": "AD.3", "FA": "FA.3" }
+    },
+    {
+      "name": "Interior Windows",
+      "service_id": "WIN-INT",
+      "tracking_sku": "DEN.WIN-INT.HL3.SL3.AD1.FA1",
+      "unit": "pane",
+      "qty": 120,
+      "unit_price": 3.0,
+      "line_price": 360.0,
+      "modifiers": { "HL": "HL.3", "SL": "SL.1", "AD": "AD.1", "FA": "FA.1" }
+    },
+    {
+      "name": "Screen Cleaning",
+      "service_id": "SCR-CLN",
+      "tracking_sku": "DEN.SCR-CLN.HL2.SL2.AD2",
+      "unit": "screen",
+      "qty": 70,
+      "unit_price": 2.5,
+      "line_price": 175.0,
+      "modifiers": { "HL": "HL.2", "SL": "SL.2", "AD": "AD.2" }
+    },
+    {
+      "name": "Screen Sealing (Add-on)",
+      "service_id": "SCR-SEAL",
+      "tracking_sku": "DEN.SCR-SEAL.HL2.SL2.AD2",
+      "unit": "screen",
+      "qty": 70,
+      "unit_price": 1.5,
+      "line_price": 105.0,
+      "modifiers": { "HL": "HL.2", "SL": "SL.2", "AD": "AD.2" }
+    },
+    {
+      "name": "Track Cleaning",
+      "service_id": "TRK-CLN",
+      "tracking_sku": "DEN.TRK-CLN.HL2.SL3.AD3",
+      "unit": "track",
+      "qty": 70,
+      "unit_price": 3.5,
+      "line_price": 245.0,
+      "modifiers": { "HL": "HL.2", "SL": "SL.3", "AD": "AD.3" }
+    },
+    {
+      "name": "Glass Restoration: Hard Water Stain",
+      "service_id": "GLS-HWR",
+      "tracking_sku": "DEN.GLS-HWR.HL2.SL3.AD2",
+      "unit": "pane",
+      "qty": 30,
+      "unit_price": 10.5,
+      "line_price": 315.0,
+      "modifiers": { "HL": "HL.2", "SL": "SL.3", "AD": "AD.2" }
+    },
+    {
+      "name": "Glass Restoration: Hard Water Mitigation (Sealant)",
+      "service_id": "GLS-HWM",
+      "tracking_sku": "DEN.GLS-HWM.HL1.SL2.AD1",
+      "unit": "sq ft",
+      "qty": 120,
+      "unit_price": 2.5,
+      "line_price": 300.0,
+      "modifiers": { "HL": "HL.1", "SL": "SL.2", "AD": "AD.1" }
+    },
+    {
+      "name": "Skylight Cleaning",
+      "service_id": "SKY-CLN",
+      "tracking_sku": "DEN.SKY-CLN.HL3.SL2.AD3.FA5",
+      "unit": "unit",
+      "qty": 4,
+      "unit_price": 15.0,
+      "line_price": 60.0,
+      "modifiers": { "HL": "HL.3", "SL": "SL.2", "AD": "AD.3", "FA": "FA.5" }
+    },
+    {
+      "name": "House Wash (Soft)",
+      "service_id": "HW-SFT",
+      "tracking_sku": "DEN.HW-SFT.HL2.CT2.AD2",
+      "unit": "sq ft",
+      "qty": 2500,
+      "unit_price": 1.04,
+      "line_price": 2600.0,
+      "modifiers": { "HL": "HL.2", "CT": "CT.2", "AD": "AD.2" }
+    },
+    {
+      "name": "Roof Wash",
+      "service_id": "RF-WSH",
+      "tracking_sku": "DEN.RF-WSH.HL3.CT3.AD3",
+      "unit": "sq ft",
+      "qty": 1800,
+      "unit_price": 1.19,
+      "line_price": 2142.0,
+      "modifiers": { "HL": "HL.3", "CT": "CT.3", "AD": "AD.3" }
+    },
+    {
+      "name": "Driveway / Concrete / Patio Wash",
+      "service_id": "CON-WSH",
+      "tracking_sku": "DEN.CON-WSH.CT2.AD1",
+      "unit": "sq ft",
+      "qty": 800,
+      "unit_price": 2.02,
+      "line_price": 1616.0,
+      "modifiers": { "CT": "CT.2", "AD": "AD.1" }
+    },
+    {
+      "name": "Deck Wash",
+      "service_id": "DK-WSH",
+      "tracking_sku": "DEN.DK-WSH.CT2.AD1",
+      "unit": "sq ft",
+      "qty": 400,
+      "unit_price": 1.05,
+      "line_price": 420.0,
+      "modifiers": { "CT": "CT.2", "AD": "AD.1" }
+    },
+    {
+      "name": "Fence Wash",
+      "service_id": "FNC-WSH",
+      "tracking_sku": "DEN.FNC-WSH.HL1.CT2.AD2",
+      "unit": "ln ft",
+      "qty": 200,
+      "unit_price": 1.25,
+      "line_price": 250.0,
+      "modifiers": { "HL": "HL.1", "CT": "CT.2", "AD": "AD.2" }
+    },
+    {
+      "name": "Paver Wash",
+      "service_id": "PAV-WSH",
+      "tracking_sku": "DEN.PAV-WSH.CT2.AD1",
+      "unit": "sq ft",
+      "qty": 600,
+      "unit_price": 1.66,
+      "line_price": 996.0,
+      "modifiers": { "CT": "CT.2", "AD": "AD.1" }
+    },
+    {
+      "name": "Setup & Logistics Fee",
+      "service_id": "SETUP-FEE",
+      "tracking_sku": "DEN.SETUP-FEE",
+      "unit": "job",
+      "qty": 1,
+      "unit_price": 60.0,
+      "line_price": 0.0,
+      "waived": true,
+      "waived_reason": "BRIGHT_BLOCK"
+    },
+    {
+      "name": "Discount (15% of service subtotal; cap 20%)",
+      "service_id": "DISC",
+      "tracking_sku": "DEN.DISC.GLEAMON15",
+      "unit": "job",
+      "qty": 1,
+      "unit_price": -399.38,
+      "line_price": -399.38,
+      "discount_percent": 15,
+      "discount_cap_percent": 20
+    }
+  ]
+}

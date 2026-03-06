@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "version": "3.0",
+    "description": "Gleam Master Pricing Math Dictionary - Single Source of Truth",
+    "note": "Multipliers are applied to Base Time. Adders are discrete minutes/costs added per unit."
+  },
+  "constants": {
+    "indirect_overhead_multiplier": 1.15,
+    "target_margin_divider": 0.70,
+    "technician_hourly_burden": 36.00,
+    "setup_fee": 60.00
+  },
+  "vtm_math": {
+    "HL": {
+      "description": "Height Level",
+      "type": "multiplicative",
+      "values": {
+        "HL1": { "windows": 1.00, "gutters": 1.00, "surface_wash": 1.00 },
+        "HL2": { "windows": 1.25, "gutters": 1.25, "surface_wash": 1.20 },
+        "HL3": { "windows": 1.75, "gutters": 1.50, "surface_wash": 1.40 },
+        "HL4": "ESCAPE"
+      }
+    },
+    "SL": {
+      "description": "Soil Level (Mechanisms differ by service)",
+      "windows": {
+        "type": "additive",
+        "values": {
+          "SL1": { "add_mins": 0, "add_cost": 0.00 },
+          "SL2": { "add_mins": 1.0, "add_cost": 1.50 },
+          "SL3": { "add_mins": 2.5, "add_cost": 3.25 },
+          "SL4": "ESCAPE"
+        }
+      },
+      "gutters": {
+        "type": "multiplicative",
+        "values": {
+          "SL1": 1.00,
+          "SL2": 1.33,
+          "SL3": 1.76
+        }
+      }
+    },
+    "AD": {
+      "description": "Accessibility / Obstruction",
+      "type": "multiplicative",
+      "values": {
+        "AD1": 1.00,
+        "AD2": 1.15,
+        "AD3": 1.30
+      }
+    },
+    "PT": {
+      "description": "Roof Pitch",
+      "type": "multiplicative",
+      "values": {
+        "PT1": 1.00,
+        "PT2": 1.25,
+        "PT3": 1.55,
+        "PT4": "ESCAPE"
+      }
+    },
+    "MA": {
+      "description": "Material Type",
+      "type": "multiplicative",
+      "values": {
+        "MA1": 1.00,
+        "MA2": 1.20,
+        "MA3": 0.90,
+        "MA4": 0.90
+      }
+    },
+    "CT": {
+      "description": "Contamination Level (Surface Wash)",
+      "type": "multiplicative",
+      "values": {
+        "CT1": 1.00,
+        "CT2": 1.25,
+        "CT3": 1.55
+      }
+    }
+  }
+}
