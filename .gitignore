@@ -40,3 +40,7 @@ Thumbs.db
 *.jpg
 *.avif
 *.zip
+
+*psd
+
+desktop.ini
