@@ -1,5 +1,42 @@
+# Environment variables (Secrets)
+.env
+.env.local
+.env.production
+
 # Node.js dependencies
 node_modules/
 
-# Environment variables (Secrets)
-.env
+# Raw county data (large files, never commit)
+data/
+*.geojson
+
+# ETL temp files
+etl_sample_*.json
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# PDF
+*.pdf
+
+# Microsoft Excel
+*.xlsx
+
+# Microsoft Word
+*.docx
+
+# Photos
+*.png
+*.jpeg
+*.jpg
+*.avif
+*.zip

@@ -1,0 +1,1162 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "created": "2026-03-06",
+    "model_version": "V7",
+    "model_mape_target": 10.5,
+    "variance_tolerance_pct": 5.0,
+    "source_documents": [
+      "D6_Geographic_Priors_Companion.md §2 (V7 coefficients)",
+      "D6_Geographic_Priors_Companion.md §10 (Golden Set hygiene rules)",
+      "D10_Service_Definitions_Companion.md (pricing formulas)",
+      "Strategic_Decisions_Register.md (SDR-001 through SDR-010)",
+      "2025_Job_History.xlsx (invoice ground truth)"
+    ],
+    "assessor_data_status": "INCOMPLETE — Job history Sq Ft = total sqft (AGSF + basement). Actual AGSF and assessor fields require Property_Improvements.txt Col 8 (AGSF), Col 5/21 (stories), Col 14+15 (basement split), Col 24 (bedrooms), Col 6 (quality). DO NOT use job history Sq Ft as AGSF.",
+    "v7_coefficients": {
+      "intercept": -17.1,
+      "agsf_per_1000": 43.0,
+      "agsf_sq_per_1000": -3.3,
+      "is_2story": 22.0,
+      "bsmt_total_per_1000": 4.9,
+      "bedrooms": -11.7,
+      "is_good_plus": -12.7,
+      "is_townhome": -2.9
+    },
+    "pricing_constants": {
+      "loaded_labor_rate_hr": 36.00,
+      "blended_crew_rate_hr": 55.00,
+      "overhead_multiplier": 1.15,
+      "setup_fee": 60.00,
+      "job_minimum": 125.00,
+      "film_minimum": 450.00,
+      "margin_divisor": 0.70,
+      "max_discount_cap_pct": 20,
+      "margin_floor_pct": 30,
+      "ext_pane_base_min": 3.3,
+      "int_pane_base_min": 3.3,
+      "screen_base_min": 1.0,
+      "track_base_min": 1.5
+    },
+    "variance_framework": {
+      "GREEN": {"max_pct": 15, "description": "Acceptable — auto-approved"},
+      "YELLOW": {"min_pct": 15, "max_pct": 25, "description": "Flag — supervisor review within 24hr"},
+      "RED": {"min_pct": 25, "description": "Immediate — margin review required"}
+    }
+  },
+
+  "properties": [
+    {
+      "id": "GS-001",
+      "address": "15720 State Highway 83, Colorado Springs, CO 80921",
+      "job_id": "J27",
+      "category": "B",
+      "category_label": "Out-of-market (Colorado Springs)",
+      "zcta": "80921",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 2924,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 56,
+        "screens": 26,
+        "tracks": 0,
+        "pane_breakdown": {"1st_story": 50, "2nd_story": 6},
+        "service_type": "ext_only",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 303.40
+      },
+      "non_window_primitives": {
+        "gutter_lf": "LOOKUP_REQUIRED",
+        "roof_area_sqft": "LOOKUP_REQUIRED",
+        "siding_area_sqft": "LOOKUP_REQUIRED",
+        "driveway_area_sqft": "LOOKUP_REQUIRED"
+      },
+      "notes": "Out-of-market (Colorado Springs). 2-story with very limited 2nd-story glass (only 6 panes). Not in Douglas County assessor file."
+    },
+
+    {
+      "id": "GS-002",
+      "address": "2559 Mayotte Way, Castle Rock, CO 80109",
+      "job_id": "J28",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80109",
+      "property_type": "Townhome",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 1947,
+        "stories": 3,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "attached_1car",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 1
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 47,
+        "screens": 10,
+        "tracks": 0,
+        "pane_breakdown": {"mixed_all_levels": 47},
+        "service_type": "int_ext",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 335.00,
+        "hl3_panes": 6,
+        "hl3_unit_price": 15.95
+      },
+      "photo_observations": {
+        "garage": {"style": "attached_1car", "panes": "UNKNOWN"},
+        "materials": ["LOOKUP_REQUIRED"],
+        "walkout_basement": false,
+        "special": "Modern 3-story townhome. Front has majority glass. HL.3 tower windows. Rooftop deck."
+      },
+      "non_window_primitives": {
+        "gutter_lf": "LOOKUP_REQUIRED",
+        "roof_area_sqft": "LOOKUP_REQUIRED",
+        "siding_area_sqft": "LOOKUP_REQUIRED",
+        "driveway_area_sqft": "LOOKUP_REQUIRED"
+      },
+      "notes": "Only N=1 for 3-story townhome. -2.9 townhome coefficient may be too aggressive for modern designs. HL.3 confirms 3rd-story operational tier."
+    },
+
+    {
+      "id": "GS-003",
+      "address": "2788 Dreamcatcher Rd, Castle Rock, CO 80109",
+      "job_id": "J30",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 3760,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "attached_3car",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 62,
+        "screens": 0,
+        "tracks": 0,
+        "pane_breakdown": {"1st_story": 31, "2nd_story": 24, "selective_interior": 7},
+        "service_type": "int_ext_selective",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 476.37
+      },
+      "photo_observations": {
+        "garage": {"style": "plain_panel", "panes": 0},
+        "materials": ["fiber_cement", "stone_columns"],
+        "walkout_basement": true,
+        "egress_wells": 2
+      },
+      "non_window_primitives": {
+        "gutter_lf": "LOOKUP_REQUIRED",
+        "roof_area_sqft": "LOOKUP_REQUIRED",
+        "siding_area_sqft": "LOOKUP_REQUIRED",
+        "driveway_area_sqft": "LOOKUP_REQUIRED"
+      },
+      "notes": "Plain panel garage (0 panes). Full ext + selective int (7/55 int panes). Walk-out with 2 egress wells. Fiber cement primary."
+    },
+
+    {
+      "id": "GS-004",
+      "address": "2751 Black Canyon Way, Castle Rock, CO 80104",
+      "job_id": "J33",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80104",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 4860,
+        "stories": "LOOKUP_REQUIRED",
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": "LOOKUP_REQUIRED",
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 47,
+        "screens": 36,
+        "tracks": 0,
+        "pane_breakdown": {"1st_story": 35, "basement": 10, "other": 2},
+        "service_type": "ext_only",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 339.10
+      },
+      "non_window_primitives": {
+        "gutter_lf": "LOOKUP_REQUIRED",
+        "roof_area_sqft": "LOOKUP_REQUIRED",
+        "siding_area_sqft": "LOOKUP_REQUIRED",
+        "driveway_area_sqft": "LOOKUP_REQUIRED"
+      },
+      "notes": "Likely 1-story ranch with walk-out basement (10 basement panes, 35 1st story). Large total sqft may indicate big basement."
+    },
+
+    {
+      "id": "GS-005",
+      "address": "3911 Forever Circle, Castle Rock, CO 80104",
+      "job_id": "J34",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80104",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 1904,
+        "stories": "LOOKUP_REQUIRED",
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": "LOOKUP_REQUIRED",
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 26,
+        "screens": 0,
+        "tracks": 0,
+        "pane_breakdown": {"1st_story": 14, "basement": 12},
+        "service_type": "int_ext",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 237.00
+      },
+      "non_window_primitives": {
+        "gutter_lf": "LOOKUP_REQUIRED",
+        "roof_area_sqft": "LOOKUP_REQUIRED",
+        "siding_area_sqft": "LOOKUP_REQUIRED",
+        "driveway_area_sqft": "LOOKUP_REQUIRED"
+      },
+      "notes": "1-story with walk-out basement. 12 basement panes = substantial walk-out fenestration."
+    },
+
+    {
+      "id": "GS-006",
+      "address": "2168 Treetop Dr, Castle Rock, CO 80109",
+      "job_id": "J35",
+      "category": "A",
+      "category_label": "V7 validation — SOLE RED (ranch overestimate)",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED — D6 companion references 2337sf for this property",
+        "total_sqft_from_job_history": 4646,
+        "stories": 1,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "Average",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 0,
+        "is_good_plus": 0,
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required (D6 says ~2337sf, +38.9% error expected)",
+      "v7_expected_flag": "RED",
+      "invoice": {
+        "total_panes": 34,
+        "screens": 10,
+        "tracks": 0,
+        "pane_breakdown": {"main": 28, "basement": 6},
+        "service_type": "int_ext",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 264.70
+      },
+      "non_window_primitives": {
+        "gutter_lf": "LOOKUP_REQUIRED",
+        "roof_area_sqft": "LOOKUP_REQUIRED",
+        "siding_area_sqft": "LOOKUP_REQUIRED",
+        "driveway_area_sqft": "LOOKUP_REQUIRED"
+      },
+      "notes": "SOLE REMAINING RED JOB. 1-story ranch. D6 says AGSF=2337 (total 4646 includes ~2309sf basement). V7 overestimates ranches — known systematic error. May need story-specific intercept when more ranch data accumulates."
+    },
+
+    {
+      "id": "GS-007",
+      "address": "2379 Haystack Rd, Castle Rock, CO 80104",
+      "job_id": "J37",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80104",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 7363,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 88,
+        "screens": 0,
+        "tracks": 0,
+        "pane_breakdown": {"mixed": 88},
+        "service_type": "int_ext",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 606.60
+      },
+      "non_window_primitives": {
+        "gutter_lf": "LOOKUP_REQUIRED",
+        "roof_area_sqft": "LOOKUP_REQUIRED",
+        "siding_area_sqft": "LOOKUP_REQUIRED",
+        "driveway_area_sqft": "LOOKUP_REQUIRED"
+      },
+      "notes": "Large 2-story. High pane count."
+    },
+
+    {
+      "id": "GS-008",
+      "address": "2490 Trailblazer Rd, Castle Rock, CO 80104",
+      "job_id": "J38",
+      "category": "A",
+      "category_label": "V7 validation — full-scope, photo-validated",
+      "zcta": "80104",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 4616,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "Average",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "attached_2car",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": 0,
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 66,
+        "screens": 0,
+        "tracks": 0,
+        "pane_breakdown": {"main": 65, "basement": 1},
+        "service_type": "int_ext",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 0.00
+      },
+      "photo_observations": {
+        "garage": {"style": "carriage_2car", "panes": 8},
+        "materials": ["stucco", "lap_siding", "stone_veneer"],
+        "walkout_basement": true,
+        "material_decomposition": {
+          "stucco_sqft": 945,
+          "lap_siding_sqft": 1080,
+          "stone_veneer_sqft": 540,
+          "garage_door_sqft": 112,
+          "total_gross_wall_sqft": 2677
+        }
+      },
+      "non_window_primitives": {
+        "gutter_lf": "LOOKUP_REQUIRED",
+        "roof_area_sqft": "LOOKUP_REQUIRED",
+        "siding_area_sqft": 2677,
+        "driveway_area_sqft": "LOOKUP_REQUIRED"
+      },
+      "notes": "8 carriage garage panes excluded from 66-pane invoice. Photo-validated 3-material facade (stucco + lap + stone). D10 house wash worked example property. Rear has MORE glass than front."
+    },
+
+    {
+      "id": "GS-009",
+      "address": "3132 Keepsake Way, Castle Rock, CO 80109",
+      "job_id": "J39",
+      "category": "A",
+      "category_label": "PARTIAL SCOPE — DIY easy ones",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 5350,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 23,
+        "screens": 0,
+        "tracks": 0,
+        "pane_breakdown": {"2nd_story": 23},
+        "service_type": "ext_only",
+        "scope_type": "partial",
+        "scope_pattern": "DIY_easy_ones",
+        "scope_exclusions": ["Z-1F", "Z-1L", "Z-1R", "Z-1B", "BG0", "GAR_WIN"],
+        "est_full_property_panes": 56,
+        "total_invoice": 128.80,
+        "pane_density_per_1000sf": 4.3
+      },
+      "non_window_primitives": {
+        "gutter_lf": "LOOKUP_REQUIRED",
+        "roof_area_sqft": "LOOKUP_REQUIRED",
+        "siding_area_sqft": "LOOKUP_REQUIRED",
+        "driveway_area_sqft": "LOOKUP_REQUIRED"
+      },
+      "notes": "PARTIAL SCOPE: 2nd story exterior only. 23 of ~56 total panes. Density filter catches at 4.3 panes/1000sf (threshold: 7.0). Validate V7 against est_full=56, NOT invoice=23."
+    },
+
+    {
+      "id": "GS-010",
+      "address": "2182 Treetop Dr, Castle Rock, CO 80109",
+      "job_id": "J41",
+      "category": "A",
+      "category_label": "PARTIAL SCOPE — DIY remainder",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 2439,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 13,
+        "screens": 12,
+        "tracks": 0,
+        "pane_breakdown": {"mixed": 13},
+        "service_type": "int_ext",
+        "scope_type": "partial",
+        "scope_pattern": "DIY_remainder",
+        "scope_exclusions": ["GAR_WIN", "BG0", "most_ground_floor"],
+        "est_full_property_panes": 30,
+        "total_invoice": 160.00,
+        "pane_density_per_1000sf": 5.3
+      },
+      "non_window_primitives": {
+        "gutter_lf": "LOOKUP_REQUIRED",
+        "roof_area_sqft": "LOOKUP_REQUIRED",
+        "siding_area_sqft": "LOOKUP_REQUIRED",
+        "driveway_area_sqft": "LOOKUP_REQUIRED"
+      },
+      "notes": "PARTIAL SCOPE: First-time hire-out from DIY. 13 of ~30 panes. Density 5.3 (caught by filter). Validate V7 against est_full=30, NOT invoice=13."
+    },
+
+    {
+      "id": "GS-011",
+      "address": "2159 Treetop Dr, Castle Rock, CO 80109",
+      "job_id": "J42",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 4017,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 62,
+        "screens": 26,
+        "tracks": 0,
+        "pane_breakdown": {"1st_story": 22, "2nd_story": 31, "basement": 8, "other": 1},
+        "service_type": "ext_only",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 356.35
+      },
+      "non_window_primitives": {
+        "gutter_lf": "LOOKUP_REQUIRED",
+        "roof_area_sqft": "LOOKUP_REQUIRED",
+        "siding_area_sqft": "LOOKUP_REQUIRED",
+        "driveway_area_sqft": "LOOKUP_REQUIRED"
+      },
+      "notes": "2-story with walk-out basement (8 panes). Good V7 validation property."
+    },
+
+    {
+      "id": "GS-012",
+      "address": "2683 Keepsake Way, Castle Rock, CO 80109",
+      "job_id": "J43",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 5215,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 52,
+        "screens": 0,
+        "tracks": 0,
+        "pane_breakdown": {"1st_story": 22, "2nd_story": 30},
+        "service_type": "ext_only",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 297.60
+      },
+      "non_window_primitives": {
+        "gutter_lf": "LOOKUP_REQUIRED",
+        "roof_area_sqft": "LOOKUP_REQUIRED",
+        "siding_area_sqft": "LOOKUP_REQUIRED",
+        "driveway_area_sqft": "LOOKUP_REQUIRED"
+      },
+      "notes": "2-story ext-only. Keepsake Way subdivision — related to J39 (3132 Keepsake)."
+    },
+
+    {
+      "id": "GS-013",
+      "address": "44 Aries St, Rexburg, ID 83440",
+      "job_id": "J44",
+      "category": "B",
+      "category_label": "Out-of-market (Rexburg ID)",
+      "zcta": "83440",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED — NOT in Douglas County assessor file",
+        "total_sqft_from_job_history": 1500,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — not in Douglas County assessor",
+      "invoice": {
+        "total_panes": 57,
+        "screens": 0,
+        "tracks": 0,
+        "pane_breakdown": {"mixed": 57},
+        "service_type": "int_ext",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 342.73
+      },
+      "notes": "Out-of-market (Rexburg ID). Small home, high pane density — different building patterns from Castle Rock."
+    },
+
+    {
+      "id": "GS-014",
+      "address": "276 Steiner Ave, Rexburg, ID 83440",
+      "job_id": "J45",
+      "category": "B",
+      "category_label": "Out-of-market (Rexburg ID)",
+      "zcta": "83440",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED — NOT in Douglas County assessor file",
+        "total_sqft_from_job_history": 1139,
+        "stories": 1,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 0,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — not in Douglas County assessor",
+      "invoice": {
+        "total_panes": 102,
+        "screens": 29,
+        "tracks": 0,
+        "pane_breakdown": {"1st_story": 64, "other": 38},
+        "service_type": "int_ext",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 451.60
+      },
+      "notes": "Out-of-market (Rexburg ID). Extreme pane density — likely French grid / true divided lights. V7 not calibrated for Idaho building stock."
+    },
+
+    {
+      "id": "GS-015",
+      "address": "3502 Nez Perce Trl, Castle Rock, CO 80109",
+      "job_id": "J47",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 1491,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 23,
+        "screens": 20,
+        "tracks": 0,
+        "pane_breakdown": {"mixed": 23},
+        "service_type": "int_ext",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 181.94
+      },
+      "notes": "Small 2-story. Neighbor to J51 (3496 Nez Perce) — same subdivision for Bayesian shrinkage validation."
+    },
+
+    {
+      "id": "GS-016",
+      "address": "3469 AmberSun Cir, Castle Rock, CO 80104",
+      "job_id": "J48",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80104",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 3062,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 21,
+        "screens": 0,
+        "tracks": 0,
+        "pane_breakdown": {"mixed": 21},
+        "service_type": "int_ext",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 182.00
+      },
+      "notes": "Unusually low pane count for sqft — check if property has large picture windows (FA.2) reducing pane count while maintaining glass area."
+    },
+
+    {
+      "id": "GS-017",
+      "address": "1923 Rose Petal Ct, Castle Rock, CO 80109",
+      "job_id": "J49",
+      "category": "A",
+      "category_label": "PARTIAL SCOPE — cherry-pick",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED — back-calculation suggests ~4000 (V7 yields ~59 at AGSF=4000)",
+        "total_sqft_from_job_history": 5195,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "attached_3car",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required (D6 expects ~59 for full property)",
+      "invoice": {
+        "total_panes": 44,
+        "screens": 23,
+        "tracks": 0,
+        "pane_breakdown": {"2nd_story": 4, "other": 40},
+        "service_type": "ext_only",
+        "scope_type": "partial",
+        "scope_pattern": "cherry_pick",
+        "scope_exclusions": ["deck_blocked_basement", "selected_windows_only"],
+        "est_full_property_panes": 60,
+        "total_invoice": 246.00,
+        "pane_density_per_1000sf": 12.4
+      },
+      "photo_observations": {
+        "garage": {"style": "carriage_3car", "panes": 16},
+        "materials": ["lap_siding", "stone_veneer"],
+        "walkout_basement": true,
+        "special": "Red X in photos = customer exclusions. 4 large picture windows int-only."
+      },
+      "notes": "PARTIAL SCOPE: Cherry-pick. 44 of ~60+ panes. Density 12.4 (NOT caught by density filter — passes threshold). V7 prediction of 59 is accurate for FULL property. Validate V7 against est_full=60, NOT invoice=44."
+    },
+
+    {
+      "id": "GS-018",
+      "address": "3496 Nez Perce Trl, Castle Rock, CO 80109",
+      "job_id": "J51",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 1583,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 29,
+        "screens": 0,
+        "tracks": 0,
+        "pane_breakdown": {"1st_story": 25, "2nd_story": 4},
+        "service_type": "ext_only",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 124.35
+      },
+      "notes": "Small 2-story. Neighbor to J47 (3502 Nez Perce)."
+    },
+
+    {
+      "id": "GS-019",
+      "address": "3638 Eaglesong Trail, Castle Rock, CO 80109",
+      "job_id": "J52",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 1510,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 26,
+        "screens": 11,
+        "tracks": 0,
+        "pane_breakdown": {"mixed": 26},
+        "service_type": "int_ext",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 198.30
+      },
+      "notes": "Small 2-story."
+    },
+
+    {
+      "id": "GS-020",
+      "address": "2625 Bellavista St, Castle Rock, CO 80109",
+      "job_id": "J55",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 6438,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 68,
+        "screens": 60,
+        "tracks": 0,
+        "pane_breakdown": {"main": 59, "basement": 9},
+        "service_type": "int_ext",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 595.79
+      },
+      "notes": "Large 2-story. 60 screens = many operable windows. Walk-out basement (9 panes). Bellavista subdivision — related to J57."
+    },
+
+    {
+      "id": "GS-021",
+      "address": "3310 Hardin St, Castle Rock, CO 80109",
+      "job_id": "J56",
+      "category": "A",
+      "category_label": "PARTIAL SCOPE — level-select (AGSF only)",
+      "zcta": "80109",
+      "property_type": "Townhome",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 1837,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "attached_2car",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": 2021,
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 1
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 29,
+        "screens": 28,
+        "tracks": 0,
+        "pane_breakdown": {"mixed_agsf_only": 29},
+        "service_type": "int_ext",
+        "scope_type": "partial",
+        "scope_pattern": "level_select_agsf_only",
+        "scope_exclusions": ["BG0"],
+        "est_full_property_panes": 38,
+        "total_invoice": 226.21,
+        "pane_density_per_1000sf": 15.8
+      },
+      "notes": "PARTIAL SCOPE: AGSF only, excluded basement (unfinished). 29 of ~38-40 total. 2021 build — NOT modern fewer windows. Attached townhome-style with shared wall. Density 15.8 (NOT caught by density filter)."
+    },
+
+    {
+      "id": "GS-022",
+      "address": "2633 Bellavista St, Castle Rock, CO 80109",
+      "job_id": "J57",
+      "category": "A",
+      "category_label": "V7 validation — full-scope with invoice",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "total_sqft_from_job_history": 4680,
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "LOOKUP_REQUIRED",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": {
+        "total_panes": 56,
+        "screens": 40,
+        "tracks": 0,
+        "pane_breakdown": {"2nd_story": 31, "basement": 2, "other": 23},
+        "service_type": "int_ext",
+        "scope_type": "full",
+        "scope_exclusions": [],
+        "total_invoice": 496.08
+      },
+      "notes": "2-story int+ext. 40 screens. Bellavista subdivision — related to J55."
+    },
+
+    {
+      "id": "GS-023",
+      "address": "244 Cheney Place, Castle Rock, CO 80104",
+      "job_id": null,
+      "category": "C",
+      "category_label": "Forward test — no job history",
+      "zcta": "80104",
+      "property_type": "SFR",
+      "assessor": {"agsf": "LOOKUP_REQUIRED", "stories": "LOOKUP_REQUIRED", "bedrooms": "LOOKUP_REQUIRED", "quality": "LOOKUP_REQUIRED", "bsmt_finished": "LOOKUP_REQUIRED", "bsmt_unfinished": "LOOKUP_REQUIRED", "garage_type": "LOOKUP_REQUIRED", "exterior_wall_code": "LOOKUP_REQUIRED", "year_built": "LOOKUP_REQUIRED", "lot_sqft": "LOOKUP_REQUIRED", "is_2story": "LOOKUP_REQUIRED", "is_good_plus": "LOOKUP_REQUIRED", "is_townhome": "LOOKUP_REQUIRED"},
+      "v7_prediction": "BLOCKED — all assessor fields required",
+      "invoice": null,
+      "notes": "Category C: Forward test. No job history. Used for blind prediction testing once assessor data loaded."
+    },
+
+    {
+      "id": "GS-024",
+      "address": "320 E Miller Ct, Castle Rock, CO 80104",
+      "job_id": null,
+      "category": "C",
+      "category_label": "Forward test — no job history",
+      "zcta": "80104",
+      "property_type": "SFR",
+      "assessor": {"agsf": "LOOKUP_REQUIRED", "stories": "LOOKUP_REQUIRED", "bedrooms": "LOOKUP_REQUIRED", "quality": "LOOKUP_REQUIRED", "bsmt_finished": "LOOKUP_REQUIRED", "bsmt_unfinished": "LOOKUP_REQUIRED", "garage_type": "LOOKUP_REQUIRED", "exterior_wall_code": "LOOKUP_REQUIRED", "year_built": "LOOKUP_REQUIRED", "lot_sqft": "LOOKUP_REQUIRED", "is_2story": "LOOKUP_REQUIRED", "is_good_plus": "LOOKUP_REQUIRED", "is_townhome": "LOOKUP_REQUIRED"},
+      "v7_prediction": "BLOCKED — all assessor fields required",
+      "invoice": null,
+      "notes": "Category C: Forward test."
+    },
+
+    {
+      "id": "GS-025",
+      "address": "1999 Champion Cir, Castle Rock, CO 80109",
+      "job_id": null,
+      "category": "C",
+      "category_label": "Forward test — no job history",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {"agsf": "LOOKUP_REQUIRED", "stories": "LOOKUP_REQUIRED", "bedrooms": "LOOKUP_REQUIRED", "quality": "LOOKUP_REQUIRED", "bsmt_finished": "LOOKUP_REQUIRED", "bsmt_unfinished": "LOOKUP_REQUIRED", "garage_type": "LOOKUP_REQUIRED", "exterior_wall_code": "LOOKUP_REQUIRED", "year_built": "LOOKUP_REQUIRED", "lot_sqft": "LOOKUP_REQUIRED", "is_2story": "LOOKUP_REQUIRED", "is_good_plus": "LOOKUP_REQUIRED", "is_townhome": "LOOKUP_REQUIRED"},
+      "v7_prediction": "BLOCKED — all assessor fields required",
+      "invoice": null,
+      "notes": "Category C: Forward test."
+    },
+
+    {
+      "id": "GS-026",
+      "address": "2154 Treetop Dr, Castle Rock, CO 80109",
+      "job_id": null,
+      "category": "C",
+      "category_label": "Forward test — photo-analyzed, CPM baseline property",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {
+        "agsf": "LOOKUP_REQUIRED",
+        "stories": 2,
+        "bedrooms": "LOOKUP_REQUIRED",
+        "quality": "LOOKUP_REQUIRED",
+        "bsmt_finished": "LOOKUP_REQUIRED",
+        "bsmt_unfinished": "LOOKUP_REQUIRED",
+        "garage_type": "split_1car_2car",
+        "exterior_wall_code": "LOOKUP_REQUIRED",
+        "year_built": "LOOKUP_REQUIRED",
+        "lot_sqft": "LOOKUP_REQUIRED",
+        "is_2story": 1,
+        "is_good_plus": "LOOKUP_REQUIRED",
+        "is_townhome": 0
+      },
+      "v7_prediction": "BLOCKED — assessor AGSF required",
+      "invoice": null,
+      "photo_observations": {
+        "garage": {"style": "split_carriage_1car_2car", "panes": "4-8"},
+        "materials": ["shake_cement", "lap_siding", "stone_veneer"],
+        "walkout_basement": "UNKNOWN",
+        "special": "Complex Craftsman with bay window. 3 materials. CPM baseline reference property."
+      },
+      "notes": "Category C but photo-analyzed. CPM gutter+window baseline property. Split garage (1-car + 2-car) with 4-8 decorative panes."
+    },
+
+    {
+      "id": "GS-027",
+      "address": "2796 Black Canyon Way, Castle Rock, CO 80104",
+      "job_id": null,
+      "category": "C",
+      "category_label": "Forward test — Black Canyon subdivision proxy",
+      "zcta": "80104",
+      "property_type": "SFR",
+      "assessor": {"agsf": "LOOKUP_REQUIRED", "stories": "LOOKUP_REQUIRED", "bedrooms": "LOOKUP_REQUIRED", "quality": "LOOKUP_REQUIRED", "bsmt_finished": "LOOKUP_REQUIRED", "bsmt_unfinished": "LOOKUP_REQUIRED", "garage_type": "LOOKUP_REQUIRED", "exterior_wall_code": "LOOKUP_REQUIRED", "year_built": "LOOKUP_REQUIRED", "lot_sqft": "LOOKUP_REQUIRED", "is_2story": "LOOKUP_REQUIRED", "is_good_plus": "LOOKUP_REQUIRED", "is_townhome": 0},
+      "v7_prediction": "BLOCKED — all assessor fields required",
+      "invoice": null,
+      "notes": "Category C. Black Canyon subdivision — J33 (2751), J61 (2808), J62 (2797) are neighbors. Bayesian shrinkage validation candidate once assessed."
+    },
+
+    {
+      "id": "GS-028",
+      "address": "3105 Rising Moon Way, Castle Rock, CO 80109",
+      "job_id": null,
+      "category": "C",
+      "category_label": "Forward test — no job history",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {"agsf": "LOOKUP_REQUIRED", "stories": "LOOKUP_REQUIRED", "bedrooms": "LOOKUP_REQUIRED", "quality": "LOOKUP_REQUIRED", "bsmt_finished": "LOOKUP_REQUIRED", "bsmt_unfinished": "LOOKUP_REQUIRED", "garage_type": "LOOKUP_REQUIRED", "exterior_wall_code": "LOOKUP_REQUIRED", "year_built": "LOOKUP_REQUIRED", "lot_sqft": "LOOKUP_REQUIRED", "is_2story": "LOOKUP_REQUIRED", "is_good_plus": "LOOKUP_REQUIRED", "is_townhome": "LOOKUP_REQUIRED"},
+      "v7_prediction": "BLOCKED — all assessor fields required",
+      "invoice": null,
+      "notes": "Category C: Forward test."
+    },
+
+    {
+      "id": "GS-029",
+      "address": "3179 Dragonfly Ct, Castle Rock, CO 80109",
+      "job_id": null,
+      "category": "C",
+      "category_label": "Forward test — no job history",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {"agsf": "LOOKUP_REQUIRED", "stories": "LOOKUP_REQUIRED", "bedrooms": "LOOKUP_REQUIRED", "quality": "LOOKUP_REQUIRED", "bsmt_finished": "LOOKUP_REQUIRED", "bsmt_unfinished": "LOOKUP_REQUIRED", "garage_type": "LOOKUP_REQUIRED", "exterior_wall_code": "LOOKUP_REQUIRED", "year_built": "LOOKUP_REQUIRED", "lot_sqft": "LOOKUP_REQUIRED", "is_2story": "LOOKUP_REQUIRED", "is_good_plus": "LOOKUP_REQUIRED", "is_townhome": "LOOKUP_REQUIRED"},
+      "v7_prediction": "BLOCKED — all assessor fields required",
+      "invoice": null,
+      "notes": "Category C: Forward test."
+    },
+
+    {
+      "id": "GS-030",
+      "address": "3300 Springmeadow Cir, Castle Rock, CO 80104",
+      "job_id": null,
+      "category": "C",
+      "category_label": "Forward test — no job history",
+      "zcta": "80104",
+      "property_type": "SFR",
+      "assessor": {"agsf": "LOOKUP_REQUIRED", "stories": "LOOKUP_REQUIRED", "bedrooms": "LOOKUP_REQUIRED", "quality": "LOOKUP_REQUIRED", "bsmt_finished": "LOOKUP_REQUIRED", "bsmt_unfinished": "LOOKUP_REQUIRED", "garage_type": "LOOKUP_REQUIRED", "exterior_wall_code": "LOOKUP_REQUIRED", "year_built": "LOOKUP_REQUIRED", "lot_sqft": "LOOKUP_REQUIRED", "is_2story": "LOOKUP_REQUIRED", "is_good_plus": "LOOKUP_REQUIRED", "is_townhome": "LOOKUP_REQUIRED"},
+      "v7_prediction": "BLOCKED — all assessor fields required",
+      "invoice": null,
+      "notes": "Category C: Forward test."
+    },
+
+    {
+      "id": "GS-031",
+      "address": "3642 Maldives Dr, Castle Rock, CO 80109",
+      "job_id": null,
+      "category": "C",
+      "category_label": "Forward test — no job history",
+      "zcta": "80109",
+      "property_type": "SFR",
+      "assessor": {"agsf": "LOOKUP_REQUIRED", "stories": "LOOKUP_REQUIRED", "bedrooms": "LOOKUP_REQUIRED", "quality": "LOOKUP_REQUIRED", "bsmt_finished": "LOOKUP_REQUIRED", "bsmt_unfinished": "LOOKUP_REQUIRED", "garage_type": "LOOKUP_REQUIRED", "exterior_wall_code": "LOOKUP_REQUIRED", "year_built": "LOOKUP_REQUIRED", "lot_sqft": "LOOKUP_REQUIRED", "is_2story": "LOOKUP_REQUIRED", "is_good_plus": "LOOKUP_REQUIRED", "is_townhome": "LOOKUP_REQUIRED"},
+      "v7_prediction": "BLOCKED — all assessor fields required",
+      "invoice": null,
+      "notes": "Category C: Forward test."
+    },
+
+    {
+      "id": "GS-032",
+      "address": "4033 S Carson St Unit B, Aurora, CO 80014",
+      "job_id": null,
+      "category": "C",
+      "category_label": "Forward test — COMMERCIAL, different market",
+      "zcta": "80014",
+      "property_type": "Commercial",
+      "assessor": {"agsf": "LOOKUP_REQUIRED", "stories": "LOOKUP_REQUIRED", "bedrooms": null, "quality": "LOOKUP_REQUIRED", "bsmt_finished": "LOOKUP_REQUIRED", "bsmt_unfinished": "LOOKUP_REQUIRED", "garage_type": null, "exterior_wall_code": "LOOKUP_REQUIRED", "year_built": "LOOKUP_REQUIRED", "lot_sqft": "LOOKUP_REQUIRED", "is_2story": "LOOKUP_REQUIRED", "is_good_plus": 0, "is_townhome": 0},
+      "v7_prediction": "NOT_APPLICABLE — commercial property, V7 is residential-only",
+      "invoice": null,
+      "notes": "Category C: Commercial unit in Aurora. V7 model NOT applicable (trained on residential). Requires commercial pricing path."
+    }
+  ]
+}
