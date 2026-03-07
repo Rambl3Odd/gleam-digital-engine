@@ -1,0 +1,184 @@
+{
+  "timestamp": "2026-03-06T22:43:34.989345",
+  "golden_set_path": "golden_set.json",
+  "verdict": "BLOCKED",
+  "message": "Assessor data required. Populate AGSF from Property_Improvements.txt before deployment.",
+  "modules": [
+    {
+      "module": "V7 Fenestration Model",
+      "status": "BLOCKED",
+      "reason": "BLOCKED \u2014 no properties have assessor AGSF populated",
+      "n_blocked": 32,
+      "action_required": "Populate assessor AGSF from Property_Improvements.txt Col 8"
+    },
+    {
+      "module": "Tier A Estimators",
+      "status": "PASS",
+      "checks": [
+        {
+          "property": "2490 Trailblazer Way (J38)",
+          "primitive": "siding_area",
+          "estimated": 3714,
+          "reference": 2700,
+          "delta_pct": 37.6,
+          "pass": true,
+          "note": "Photo-validated vs Tier A formula. D6 \u00a75.2 target \u00b125% but Tier A conf=0.45. 37%+ expected for irregular footprints."
+        },
+        {
+          "property": "2490 Trailblazer Way (J38)",
+          "primitive": "material_decomposition_sum",
+          "estimated": 3714,
+          "reference": 3714,
+          "pass": true,
+          "note": "SDR-004: Sum of components must equal gross wall"
+        }
+      ],
+      "note": "Limited validation \u2014 most primitives need Solar API or assessor data"
+    },
+    {
+      "module": "Pricing Engine",
+      "status": "PASS",
+      "checks": [
+        {
+          "test": "constant_loaded_labor_rate_hr",
+          "expected": 36.0,
+          "actual": 36.0,
+          "pass": true
+        },
+        {
+          "test": "constant_blended_crew_rate_hr",
+          "expected": 55.0,
+          "actual": 55.0,
+          "pass": true
+        },
+        {
+          "test": "constant_setup_fee",
+          "expected": 60.0,
+          "actual": 60.0,
+          "pass": true
+        },
+        {
+          "test": "constant_job_minimum",
+          "expected": 125.0,
+          "actual": 125.0,
+          "pass": true
+        },
+        {
+          "test": "constant_margin_divisor",
+          "expected": 0.7,
+          "actual": 0.7,
+          "pass": true
+        },
+        {
+          "test": "constant_ext_pane_base_min",
+          "expected": 3.3,
+          "actual": 3.3,
+          "pass": true
+        },
+        {
+          "test": "margin_floor_5panes_ext_only",
+          "margin_pct": 30.6,
+          "price": 125.0,
+          "above_minimum": true,
+          "pass": true,
+          "note": "Minimum pane job"
+        },
+        {
+          "test": "margin_floor_30panes_ext_only",
+          "margin_pct": 30.0,
+          "price": 242.54,
+          "above_minimum": true,
+          "pass": true,
+          "note": "Standard residential"
+        },
+        {
+          "test": "margin_floor_88panes_int_ext",
+          "margin_pct": 30.0,
+          "price": 785.97,
+          "above_minimum": true,
+          "pass": true,
+          "note": "Large int+ext"
+        },
+        {
+          "test": "discount_cap_enforcement",
+          "expected_max": 20.0,
+          "actual": 20.0,
+          "pass": true,
+          "note": "GO_PREM (20%) + bundle (10%) must cap at 20%"
+        },
+        {
+          "test": "job_minimum_floor",
+          "expected_min": 125.0,
+          "actual": 125.0,
+          "pass": true,
+          "note": "2-pane job must hit $125 floor"
+        },
+        {
+          "test": "hl4_escape_hatch",
+          "expected": "ONSITE",
+          "actual": "ONSITE",
+          "pass": true,
+          "note": "HL.4 must force ONSITE routing"
+        }
+      ],
+      "n_passed": 12,
+      "n_total": 12
+    },
+    {
+      "module": "Golden Set Integrity",
+      "status": "PASS",
+      "checks": [
+        {
+          "test": "property_count",
+          "expected": 32,
+          "actual": 32,
+          "pass": true
+        },
+        {
+          "test": "unique_ids",
+          "expected": 32,
+          "actual": 32,
+          "pass": true
+        },
+        {
+          "test": "partial_scope_tagging",
+          "n_partial": 4,
+          "n_with_est_full": 4,
+          "pass": true,
+          "note": "All partial scope must have est_full_property_panes (D6 \u00a710.2)"
+        },
+        {
+          "test": "partial_scope_completeness",
+          "expected": [
+            "J39",
+            "J41",
+            "J49",
+            "J56"
+          ],
+          "actual": [
+            "J39",
+            "J41",
+            "J49",
+            "J56"
+          ],
+          "pass": true
+        },
+        {
+          "test": "no_partial_contamination",
+          "n_contaminated": 0,
+          "pass": true,
+          "note": "Partial scope jobs must NOT appear as scope_type=full"
+        },
+        {
+          "test": "category_distribution",
+          "distribution": {
+            "B": 3,
+            "A": 19,
+            "C": 10
+          },
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

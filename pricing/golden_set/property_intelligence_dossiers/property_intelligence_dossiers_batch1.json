@@ -1,0 +1,866 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2026-03-07",
+    "analyst": "Claude (photo + invoice + assessor + job notes)",
+    "schema": "5-layer Property Intelligence Dossier",
+    "layers": [
+      "L1: Physical Inventory — what exists on the property",
+      "L2: Gleam Service Opportunities — what we can sell",
+      "L3: Partner Referral Triggers — what Tier A partners want",
+      "L4: Operational Context — sequencer and crew dispatch",
+      "L5: Persona Signal — who lives here"
+    ]
+  },
+
+  "properties": [
+
+    {
+      "address": "2788 Dreamcatcher Loop, Castle Rock, CO 80109",
+      "job_id": "J30",
+      "parcel_id": "LOOKUP",
+      "assessor": {
+        "agsf": 2425, "stories": 2, "bedrooms": 3, "quality": "Average",
+        "bsmt_finished": 457, "bsmt_unfinished": 1081, "garage_sqft": 656,
+        "year_built": 2007, "exterior_wall_code": "Lap Siding"
+      },
+      "invoice": {
+        "job_number": 30,
+        "total": 476.37,
+        "job_time_minutes": 210,
+        "crew": "1x Level 2 tech, 2x trainees",
+        "line_items": [
+          {"sku": "WC.R.BSC.SL1.L1.1", "desc": "Ext-only Standard 1st Story", "qty": 31, "unit_price": 5.15},
+          {"sku": "WC.R.BSC.SL1.L2.1", "desc": "Ext-only Standard 2nd Story", "qty": 24, "unit_price": 6.15},
+          {"sku": "WC.R.DLX.SL1.L1.1", "desc": "Int+Ext Standard 1st Story", "qty": 7, "unit_price": 7.80},
+          {"sku": "WC.R.DLX.SL1.L2.3", "desc": "Int+Ext Large Picture 2nd Story", "qty": 9, "unit_price": 11.15}
+        ],
+        "total_panes_corrected": 71,
+        "total_panes_job_history": 62,
+        "discrepancy_note": "Job history missed 9 large picture windows at HL.2. Invoice total is 71 panes, not 62."
+      },
+
+      "L1_physical_inventory": {
+        "fenestration": {
+          "total_cleanable_panes": 71,
+          "garage_panes": 0,
+          "by_facade": {
+            "front": {"hl1": 8, "hl2": 5, "total": 13, "confidence": 0.75},
+            "rear": {"hl1": 8, "hl2": 14, "total": 22, "confidence": 0.80, "note": "Heavy glass — 9 large picture windows + deck slider"},
+            "left_side": {"hl1": 3, "hl2": 4, "total": 7, "confidence": 0.60},
+            "right_side": {"hl1": 3, "hl2": 4, "total": 7, "confidence": 0.60},
+            "basement": {"bg0": 3, "total": 3, "confidence": 0.70, "note": "2 egress wells confirmed from photos"}
+          },
+          "fa_distribution": {"FA1_standard": 0.78, "FA2_large_picture": 0.13, "FA3_french": 0.0, "FA4_egress": 0.04, "FA5_skylight": 0.0},
+          "hl_distribution": {"HL1": 0.44, "HL2": 0.52, "BG0": 0.04},
+          "sdl_grids_present": true,
+          "sdl_note": "Decorative SDL grids — clean as single panes (FA.1), NOT true divided lights"
+        },
+        "garage": {
+          "type": "attached_3car",
+          "door_style": "plain_panel",
+          "panes": 0,
+          "door_area_sqft": 168,
+          "door_material": "steel_painted"
+        },
+        "siding": {
+          "primary": {"material": "fiber_cement_lap", "code": "SDG.FIB", "coverage_pct": 72},
+          "accent": {"material": "stone_veneer", "code": "STN.MSV", "coverage_pct": 10, "location": "front porch columns and bump-out base"},
+          "secondary": null,
+          "garage_door": {"material": "steel_painted", "code": "GAR.MTL", "coverage_pct": 6}
+        },
+        "roof": {
+          "material": "comp_shingle",
+          "pitch_estimate": "standard_5_12",
+          "planes_visible": 5,
+          "complexity": "complex_5_7",
+          "rc_factor": 1.25,
+          "condition_visible": "good",
+          "biological_growth": false,
+          "satellite_dish": true
+        },
+        "gutters": {
+          "material": "aluminum_k_style",
+          "color": "bronze",
+          "guards_visible": false,
+          "condition": "good",
+          "sagging_sections": 0,
+          "downspout_count_visible": 4
+        },
+        "deck": {
+          "present": true,
+          "material": "composite",
+          "level": "HL2",
+          "approx_sqft": 200,
+          "railing": "composite_with_metal_balusters",
+          "stairs_to_grade": true,
+          "condition": "good"
+        },
+        "driveway": {
+          "material": "concrete",
+          "approx_sqft": 600,
+          "condition": "good",
+          "cracks_visible": false
+        },
+        "fence": {
+          "present": true,
+          "material": "wood_split_rail",
+          "approx_lf": 80,
+          "location": "side/rear property line",
+          "condition": "weathered_fair"
+        },
+        "walkout_basement": true,
+        "solar_panels": false,
+        "landscaping": {
+          "front": "professional_maintained",
+          "rear": "deck_patio_with_seating",
+          "trees_near_roof": true,
+          "tree_types_visible": ["deciduous_shade"]
+        }
+      },
+
+      "L2_gleam_services": {
+        "window_cleaning": {
+          "scope": "full_property",
+          "ext_only_panes": 71,
+          "recommended_package": "Pick 3 Bundle (ext + screens + tracks)",
+          "int_ext_upsell": "16 interior panes — 9 large picture at HL.2 ($11.15/ea) are high-value add-on",
+          "estimated_ext_price_range": [310, 380],
+          "estimated_complete_care": [480, 560]
+        },
+        "house_wash": {
+          "candidate": true,
+          "gross_wall_sqft": 2700,
+          "material_decomposition": {
+            "fiber_cement": {"sqft": 1944, "rate": 700, "hl_split": {"HL1": 0.50, "HL2": 0.50}},
+            "stone_veneer": {"sqft": 270, "rate": 450, "hl_split": {"HL1": 1.0}},
+            "garage_door": {"sqft": 168, "rate": 800, "hl_split": {"HL1": 1.0}}
+          },
+          "chemistry_notes": "Fiber cement primary — standard SH mix. Stone columns need low-PSI masonry detergent.",
+          "estimated_price_range": [480, 600]
+        },
+        "gutter_cleaning": {
+          "candidate": true,
+          "est_linear_ft": 180,
+          "hl_distribution": {"HL1": 0.45, "HL2": 0.55},
+          "debris_risk": "moderate — deciduous shade trees visible near roofline",
+          "guard_present": false,
+          "estimated_price_range": [220, 310]
+        },
+        "pressure_wash": {
+          "candidate": true,
+          "surfaces": [
+            {"type": "driveway", "sqft": 600, "material": "concrete"},
+            {"type": "patio", "sqft": 150, "material": "flagstone"}
+          ],
+          "estimated_price_range": [180, 260]
+        },
+        "roof_wash": {
+          "candidate": false,
+          "reason": "No visible biological growth. Comp shingle in good condition. 2007 build = 19 years, approaching moss-watch age."
+        },
+        "holiday_lighting": {
+          "candidate": true,
+          "roofline_lf_est": 180,
+          "complexity": "high — 5+ roof planes, multiple gable peaks",
+          "power_drop_locations": 2,
+          "estimated_price_range": [800, 1200]
+        },
+        "permanent_lighting": {
+          "candidate": true,
+          "trimlight_lf_est": 180,
+          "fascia_condition": "good — clean mounting surface",
+          "estimated_price_range": [3600, 5400]
+        },
+        "screen_repair": {
+          "flags": [],
+          "note": "No visible screen damage from photos"
+        },
+        "solar_panel_cleaning": {
+          "candidate": false,
+          "reason": "No solar panels present"
+        }
+      },
+
+      "L3_partner_triggers": {
+        "roofer": {
+          "trigger": false,
+          "note": "Comp shingle ~2007, approaching 20-year mark. Not urgent but approaching replacement window 2027-2032. Worth a proactive referral in 2-3 years."
+        },
+        "landscaper": {
+          "trigger": false,
+          "note": "Well-maintained professional landscaping front and rear."
+        },
+        "tree_service": {
+          "trigger": true,
+          "reason": "Deciduous shade trees with branches extending over roof/gutter line. Annual trimming prevents gutter debris acceleration.",
+          "urgency": "advisory"
+        },
+        "fence_company": {
+          "trigger": true,
+          "reason": "Split-rail fence showing weathering. Cedar color fading to gray. Staining or replacement candidate.",
+          "urgency": "routine"
+        },
+        "interior_cleaner": {
+          "trigger": true,
+          "reason": "Customer already buys selective interior window service. Cross-sell interior deep clean is natural progression.",
+          "urgency": "routine"
+        },
+        "hvac": {
+          "trigger": false,
+          "note": "HVAC equipment not visible from exterior photos. 2007 build = 19-year system — approaching replacement."
+        }
+      },
+
+      "L4_operational_context": {
+        "access_difficulty": {
+          "front": "AD.1 — clear driveway approach, standard ladder placement",
+          "left_side": "AD.1 — accessible from side yard",
+          "right_side": "AD.2 — neighbor proximity, may need to stage from neighbor driveway",
+          "rear": "AD.2 — deck obstructs ground-level access to upper windows. WFP from patio or ladder from deck.",
+          "basement": "AD.2 — under-deck access, storage shed partially blocking one egress well"
+        },
+        "ladder_positions": {
+          "front": 3,
+          "sides": 2,
+          "rear": 2,
+          "note": "Rear HL.2 windows likely WFP from patio or extension pole from deck"
+        },
+        "vehicle_staging": "Driveway — 2-car width, adequate for van + trailer",
+        "equipment_notes": "WFP essential for rear HL.2 large picture windows. Extension ladder for side HL.2. Deck provides elevated platform for some rear access.",
+        "water_source": "Front hose bib visible",
+        "height_tiers_active": ["HL1", "HL2", "BG0"],
+        "sequencer_constraints": [
+          "Gravity cascade: roof gutters first if bundled",
+          "Rear deck furniture must be moved or covered for HL.2 work",
+          "Under-deck basement window requires separate access setup",
+          "Satellite dish — do not disturb cable routing on left side"
+        ],
+        "estimated_crew": {
+          "windows_ext_only": {"techs": 1, "duration_hrs": 2.5},
+          "windows_int_ext": {"techs": 1, "duration_hrs": 3.5},
+          "house_wash": {"techs": 2, "duration_hrs": 3.0},
+          "bundle_win_gut": {"techs": 2, "duration_hrs": 4.5, "ladder_share_savings_pct": 12}
+        }
+      },
+
+      "L5_persona_signal": {
+        "likely_persona": "Busy Brooke",
+        "confidence": 0.65,
+        "signals": [
+          "Professional landscaping — pays for maintenance, doesn't DIY",
+          "Two late-model vehicles in driveway — dual-income household",
+          "Selective interior service (convenience-driven — cleans what they can't reach)",
+          "American flag — community-engaged homeowner",
+          "Deck furniture and outdoor living investment — entertains"
+        ],
+        "maintenance_level": "high",
+        "price_sensitivity": "moderate — buys convenience but watches total",
+        "gleam_on_candidate": "GO_PLUS — semi-annual service aligns with maintenance pattern",
+        "communication_preference": "efficiency-first — wants scheduling to be seamless (job notes confirm notification gap was friction point)"
+      }
+    },
+
+    {
+      "address": "2490 Trailblazer Way, Castle Rock, CO 80109",
+      "job_id": "J38",
+      "assessor": {
+        "agsf": 3060, "stories": 2, "bedrooms": 4, "quality": "Average",
+        "bsmt_finished": 178, "bsmt_unfinished": 0, "garage_sqft": 668,
+        "year_built": 2010, "exterior_wall_code": "Lap Siding"
+      },
+      "invoice": {
+        "job_number": 38,
+        "total": 0.00,
+        "job_time_minutes": 388,
+        "crew": "1x Level 2, 1x Level 1, 1x Trainee",
+        "crew_note": "Training job done for free. Time NOT usable for calibration — inflated by training, redo, 30-min phone call.",
+        "total_panes": 66,
+        "total_interior": 16,
+        "note": "66 exterior panes + 16 selective interior (clerestory + rear picture windows). 8 carriage garage panes excluded."
+      },
+
+      "L1_physical_inventory": {
+        "fenestration": {
+          "total_cleanable_panes": 66,
+          "garage_panes": 8,
+          "by_facade": {
+            "front": {"hl1": 6, "hl2": 8, "total": 14, "confidence": 0.85, "note": "Arched decorative window at HL.2 with shutters"},
+            "rear": {"hl1": 10, "hl2": 12, "total": 22, "confidence": 0.80, "note": "HEAVY glass — large SDL picture windows at both levels + deck slider + basement under deck"},
+            "left_side": {"hl1": 4, "hl2": 4, "total": 8, "confidence": 0.70},
+            "right_side": {"hl1": 4, "hl2": 4, "total": 8, "confidence": 0.65},
+            "basement": {"bg0": 1, "total": 1, "confidence": 0.80, "note": "Under-deck, restricted access"}
+          },
+          "fa_distribution": {"FA1_standard": 0.75, "FA2_large_picture": 0.18, "FA3_french": 0.0, "FA4_egress": 0.02, "FA5_skylight": 0.0},
+          "hl_distribution": {"HL1": 0.47, "HL2": 0.51, "BG0": 0.02},
+          "sdl_grids_present": true,
+          "arched_transoms": 1
+        },
+        "garage": {
+          "type": "attached_2car",
+          "door_style": "carriage_arched",
+          "panes": 8,
+          "door_area_sqft": 112,
+          "door_material": "steel_carriage_style",
+          "stone_surround": true
+        },
+        "siding": {
+          "primary": {"material": "stucco_synthetic", "code": "SDG.STU", "coverage_pct": 35, "location": "upper gable sections"},
+          "accent": {"material": "stone_veneer", "code": "STN.MSV", "coverage_pct": 20, "location": "lower wainscoting 3-4ft, garage surround, front entry"},
+          "secondary": {"material": "fiber_cement_lap", "code": "SDG.FIB", "coverage_pct": 38, "location": "mid-sections and entire rear"},
+          "garage_door": {"material": "steel_carriage", "code": "GAR.MTL", "coverage_pct": 4}
+        },
+        "roof": {
+          "material": "concrete_tile",
+          "pitch_estimate": "moderate_6_7_12",
+          "planes_visible": 6,
+          "complexity": "complex_5_7",
+          "rc_factor": 1.25,
+          "condition_visible": "good",
+          "biological_growth": false,
+          "note": "Concrete tile NOT comp shingle — higher value than assessor suggests. Tile has 50+ year life."
+        },
+        "gutters": {
+          "material": "aluminum_k_style",
+          "color": "dark_bronze",
+          "guards_visible": false,
+          "condition": "good"
+        },
+        "deck": {
+          "present": true,
+          "material": "composite",
+          "level": "HL2",
+          "approx_sqft": 250,
+          "stairs_to_grade": true,
+          "condition": "good",
+          "hot_tub_pad_below": false
+        },
+        "driveway": {
+          "material": "concrete",
+          "approx_sqft": 650,
+          "condition": "good"
+        },
+        "fence": {
+          "present": true,
+          "material": "wood_privacy",
+          "approx_lf": 40,
+          "location": "side yard gate only",
+          "condition": "good"
+        },
+        "walkout_basement": true,
+        "solar_panels": false,
+        "landscaping": {
+          "front": "xeriscaped_rock_with_beds",
+          "rear": "grass_lawn_with_patio",
+          "trees_near_roof": true,
+          "tree_types_visible": ["deciduous_maple"]
+        }
+      },
+
+      "L2_gleam_services": {
+        "window_cleaning": {
+          "scope": "full_property",
+          "ext_only_panes": 66,
+          "garage_addon_panes": 8,
+          "recommended_package": "Complete Care (int+ext + screens + tracks)",
+          "estimated_ext_price_range": [290, 360],
+          "estimated_complete_care": [450, 540]
+        },
+        "house_wash": {
+          "candidate": true,
+          "gross_wall_sqft": 2700,
+          "material_decomposition": {
+            "stucco": {"sqft": 945, "rate": 600},
+            "fiber_cement_lap": {"sqft": 1026, "rate": 700},
+            "stone_veneer": {"sqft": 540, "rate": 450},
+            "garage_door": {"sqft": 112, "rate": 800}
+          },
+          "chemistry_notes": "3-material job. Stucco needs higher SH dwell. Stone needs masonry detergent. Job notes mention oxidization on rear picture windows — check if siding oxidation is recurring.",
+          "estimated_price_range": [520, 660],
+          "note": "D10 worked example property — $560 minimum at 30% margin vs $390 flat-rate = $170 margin leak if material-blind"
+        },
+        "gutter_cleaning": {
+          "candidate": true,
+          "est_linear_ft": 200,
+          "debris_risk": "moderate-high — mature maple tree directly adjacent to roofline",
+          "estimated_price_range": [250, 350]
+        },
+        "pressure_wash": {
+          "candidate": true,
+          "surfaces": [
+            {"type": "driveway", "sqft": 650, "material": "concrete"},
+            {"type": "patio", "sqft": 200, "material": "stamped_concrete"}
+          ],
+          "estimated_price_range": [200, 300]
+        },
+        "roof_wash": {
+          "candidate": false,
+          "reason": "Concrete tile in excellent condition. No biological growth. Tile roofs rarely need washing in CO climate."
+        },
+        "holiday_lighting": {
+          "candidate": true,
+          "roofline_lf_est": 200,
+          "complexity": "very_high — 6 planes, multiple gable peaks, arched features",
+          "estimated_price_range": [900, 1400]
+        },
+        "permanent_lighting": {
+          "candidate": true,
+          "trimlight_lf_est": 200,
+          "estimated_price_range": [4000, 6000]
+        }
+      },
+
+      "L3_partner_triggers": {
+        "roofer": {
+          "trigger": false,
+          "note": "Concrete tile roof 2010 — expected 50+ year lifespan. No action needed for 30+ years."
+        },
+        "landscaper": {
+          "trigger": false,
+          "note": "Professional xeriscaping front. Well-maintained."
+        },
+        "tree_service": {
+          "trigger": true,
+          "reason": "Mature maple tree with canopy extending over left roofline. Fall gutter debris risk. Annual trim recommended.",
+          "urgency": "advisory"
+        },
+        "interior_cleaner": {
+          "trigger": true,
+          "reason": "Customer already buys selective interior window service (16 panes). Natural cross-sell.",
+          "urgency": "routine"
+        },
+        "fence_company": {
+          "trigger": false,
+          "note": "Minimal fencing — side gate only, good condition."
+        }
+      },
+
+      "L4_operational_context": {
+        "access_difficulty": {
+          "front": "AD.1 — wide driveway, clear approach",
+          "left_side": "AD.2 — narrow side yard, fence gate",
+          "right_side": "AD.1 — open side access",
+          "rear": "AD.2 — deck + stairs, lower patio accessible but furniture/equipment in way",
+          "basement": "AD.3 — under-deck, storage shed blocking, restricted clearance"
+        },
+        "vehicle_staging": "Driveway — ample room",
+        "equipment_notes": "WFP essential for rear HL.2. Under-deck basement window is AD.3 — may need to move shed. Oxidization noted on rear — may need stronger cleaning solution or mechanical agitation.",
+        "height_tiers_active": ["HL1", "HL2", "BG0"],
+        "sequencer_constraints": [
+          "Gravity cascade: gutters before windows if bundled",
+          "Rear deck furniture needs covering for wash overspray",
+          "Under-deck basement window is time-intensive (AD.3)",
+          "Oxidization on rear windows — budget extra time for rework prevention"
+        ],
+        "estimated_crew": {
+          "windows_ext_only": {"techs": 1, "duration_hrs": 2.5},
+          "house_wash": {"techs": 2, "duration_hrs": 3.5},
+          "bundle_all_exterior": {"techs": 2, "duration_hrs": 6.0, "note": "Full day for win+gut+wash bundle"}
+        },
+        "calibration_warning": "Job time (388 min) is NOT calibration-valid. Training job with 3-person crew including trainee on first job. Phone call delay + redo on oxidized rear windows."
+      },
+
+      "L5_persona_signal": {
+        "likely_persona": "Busy Brooke",
+        "confidence": 0.55,
+        "signals": [
+          "Family home — kids visible in job notes (mother-in-law + kids present)",
+          "Willing to have service done while away — convenience-driven",
+          "Got service as a family favor — but property is high-maintenance candidate",
+          "Professional xeriscaping — pays for maintenance"
+        ],
+        "maintenance_level": "high",
+        "gleam_on_candidate": "GO_BASIC — start annual, upsell to Plus after first paid service"
+      }
+    },
+
+    {
+      "address": "2559 Mayotte Way, Castle Rock, CO 80109",
+      "job_id": "J28",
+      "assessor": {
+        "agsf": 1947, "stories": 3, "bedrooms": 3, "quality": "Average",
+        "bsmt_finished": 507, "bsmt_unfinished": 0, "garage_sqft": 528,
+        "year_built": 2020, "exterior_wall_code": "Lap Siding"
+      },
+      "invoice": {
+        "total_panes": 47,
+        "total_invoice": 335.00,
+        "scope_type": "full",
+        "hl3_panes": 6,
+        "hl3_unit_price": 15.95
+      },
+
+      "L1_physical_inventory": {
+        "fenestration": {
+          "total_cleanable_panes": 47,
+          "garage_panes": 0,
+          "by_facade": {
+            "front": {"hl1": 2, "hl2": 6, "hl3": 4, "total": 12, "note": "Narrow front — garage dominates ground level"},
+            "rear": {"hl1": 4, "hl2": 8, "hl3": 2, "total": 14, "note": "Large slider/picture windows at HL.2, balcony access"},
+            "left_side": {"hl1": 2, "hl2": 3, "total": 5, "confidence": 0.50, "note": "Narrow gap to neighbor — limited visibility"},
+            "right_side": {"hl1": 2, "hl2": 3, "total": 5, "confidence": 0.50}
+          },
+          "fa_distribution": {"FA1_standard": 0.82, "FA2_large_picture": 0.13, "FA3_french": 0.0},
+          "hl_distribution": {"HL1": 0.21, "HL2": 0.66, "HL3": 0.13}
+        },
+        "garage": {
+          "type": "attached_1car",
+          "door_style": "plain_panel",
+          "panes": 0,
+          "note": "Open garage in Street View — classic car storage visible"
+        },
+        "siding": {
+          "primary": {"material": "fiber_cement_lap", "code": "SDG.FIB", "coverage_pct": 70},
+          "accent": {"material": "fiber_cement_board_and_batten", "code": "SDG.FIB", "coverage_pct": 25, "location": "contrasting dark panels on facade sections"},
+          "note": "Modern 2-tone design — both materials are fiber cement at same production rate. Color difference, not material difference."
+        },
+        "roof": {
+          "material": "comp_shingle",
+          "pitch_estimate": "moderate_6_7_12",
+          "planes_visible": 4,
+          "complexity": "standard_3_4",
+          "condition_visible": "excellent — 2020 build"
+        },
+        "deck": {
+          "present": true,
+          "type": "rooftop_deck",
+          "level": "HL3",
+          "note": "Unique feature — visible from satellite. Access from interior only."
+        },
+        "walkout_basement": false,
+        "solar_panels": false,
+        "fence": {"present": false},
+        "driveway": {"material": "concrete", "approx_sqft": 250, "note": "Small — single-car width"},
+        "landscaping": {
+          "front": "minimal_rock_bed",
+          "rear": "gravel_narrow",
+          "note": "Modern low-maintenance — consistent with detached 3-story infill design"
+        }
+      },
+
+      "L2_gleam_services": {
+        "window_cleaning": {
+          "scope": "full_property",
+          "ext_only_panes": 47,
+          "hl3_premium_panes": 6,
+          "estimated_ext_price_range": [280, 340],
+          "note": "HL.3 panes at $15.95 = 2.3x standard rate. 40ft+ WFP required."
+        },
+        "house_wash": {
+          "candidate": true,
+          "gross_wall_sqft": 1800,
+          "note": "3-story height makes this a premium wash. HL.3 siding = 1.50x rate. All fiber cement — uniform chemistry.",
+          "estimated_price_range": [380, 500]
+        },
+        "gutter_cleaning": {
+          "candidate": true,
+          "est_linear_ft": 100,
+          "note": "Shorter roofline (narrow footprint) but HL.3 gutters are premium access.",
+          "estimated_price_range": [150, 220]
+        },
+        "pressure_wash": {
+          "candidate": true,
+          "surfaces": [{"type": "driveway", "sqft": 250}],
+          "estimated_price_range": [125, 160]
+        },
+        "holiday_lighting": {
+          "candidate": true,
+          "roofline_lf_est": 100,
+          "complexity": "moderate — clean lines, modern architecture",
+          "note": "Premium pricing due to HL.3 installation height"
+        },
+        "permanent_lighting": {
+          "candidate": true,
+          "note": "Modern architecture is ideal Trimlight aesthetic. Clean fascia lines."
+        }
+      },
+
+      "L3_partner_triggers": {
+        "roofer": {"trigger": false, "note": "2020 build — brand new roof."},
+        "landscaper": {"trigger": false, "note": "Minimal landscaping by design."},
+        "tree_service": {"trigger": false, "note": "No trees on property."},
+        "interior_cleaner": {"trigger": true, "reason": "3-story interior — hard-to-reach windows. Natural cross-sell."},
+        "hvac": {"trigger": false, "note": "2020 build — all systems new."}
+      },
+
+      "L4_operational_context": {
+        "access_difficulty": {
+          "front": "AD.2 — narrow driveway, neighbor proximity",
+          "rear": "AD.2 — narrow gravel alley between buildings",
+          "sides": "AD.3 — gaps between buildings too narrow for standard ladder. WFP or sectional ladder only."
+        },
+        "height_tiers_active": ["HL1", "HL2", "HL3"],
+        "equipment_notes": "40ft+ WFP MANDATORY for HL.3. Side access extremely tight — 4-6ft gaps between buildings. May need to clean side windows from front/rear angles with WFP bend.",
+        "sequencer_constraints": [
+          "HL.3 windows MUST be cleaned top-down (gravity cascade critical at 3 stories)",
+          "Side access is the bottleneck — schedule extra time",
+          "Rooftop deck access from interior only — coordinate with homeowner",
+          "Single-car driveway limits staging. May need street parking for van."
+        ],
+        "estimated_crew": {
+          "windows_ext_only": {"techs": 1, "duration_hrs": 2.0, "note": "Compact footprint offsets HL.3 premium"},
+          "note": "HL.3 confirmed operational tier. $15.95/pane validates 2.3x rate over standard."
+        }
+      },
+
+      "L5_persona_signal": {
+        "likely_persona": "DIY Dave (transitioning to Busy Brooke)",
+        "confidence": 0.45,
+        "signals": [
+          "Classic car in garage — hobbyist, hands-on personality",
+          "Modern 3-story — likely young professional or DINK couple",
+          "Minimal landscaping — low maintenance preference",
+          "2020 build — newer homeowner, may not have established service relationships yet"
+        ],
+        "gleam_on_candidate": "GO_BASIC — new-to-service customer, start with annual and prove value",
+        "acquisition_note": "High lifetime value if captured early — new build means 20+ years of service potential before major component replacements."
+      }
+    },
+
+    {
+      "address": "1923 Rose Petal Ct, Castle Rock, CO 80109",
+      "job_id": "J49",
+      "assessor": {
+        "agsf": 3541, "stories": 2, "bedrooms": 4, "quality": "Good",
+        "bsmt_finished": 321, "bsmt_unfinished": 208, "garage_sqft": 701,
+        "year_built": 2002
+      },
+      "invoice": {
+        "job_number": 49,
+        "total": 246.00,
+        "scope_type": "partial",
+        "scope_pattern": "cherry_pick",
+        "line_items": [
+          {"desc": "Ext-only Standard Pane", "qty": 40, "unit_price": 5.50},
+          {"desc": "Screen Cleaning", "qty": 23, "unit_price": 2.50, "note": "comped free"},
+          {"desc": "Int-only Large Picture 2nd Story", "qty": 4, "unit_price": 6.50}
+        ],
+        "total_panes_serviced": 44,
+        "est_full_property_panes": 60,
+        "exclusions": "Deck-blocked basement windows, selected windows only"
+      },
+
+      "L1_physical_inventory": {
+        "fenestration": {
+          "total_cleanable_panes": 60,
+          "garage_panes": 16,
+          "note": "3-car carriage garage with ~16 decorative panes. V7 predicts 58.9 — very close to estimated 60."
+        },
+        "garage": {
+          "type": "attached_3car",
+          "door_style": "carriage_decorative",
+          "panes": 16,
+          "note": "Red X in prior photo evidence = customer-excluded panes"
+        },
+        "siding": {
+          "primary": {"material": "lap_siding", "code": "SDG.FIB"},
+          "accent": {"material": "stone_veneer", "code": "STN.MSV", "coverage_pct": 15}
+        },
+        "walkout_basement": true,
+        "deck": {"present": true, "note": "Deck blocking some basement windows — reason for partial scope exclusion"}
+      },
+
+      "L2_gleam_services": {
+        "window_cleaning": {
+          "current_scope": "partial — 44 of ~60 panes",
+          "upsell_opportunity": "Full property ext-only = ~60 panes (~$330). Customer currently pays $246 for 44.",
+          "garage_addon": "16 panes at ~$5.50 = ~$88 add-on",
+          "estimated_full_complete_care": [520, 620]
+        },
+        "house_wash": {
+          "candidate": true,
+          "note": "Good quality 2002 build with stone accent — 15%. Standard soft-wash candidate."
+        },
+        "gutter_cleaning": {"candidate": true},
+        "holiday_lighting": {"candidate": true, "note": "Large 3-car frontage with complex roofline — premium install"}
+      },
+
+      "L3_partner_triggers": {
+        "roofer": {
+          "trigger": true,
+          "reason": "2002 build = 24-year roof. Approaching or past replacement window for comp shingle (20-25 year expected life in CO UV).",
+          "urgency": "recommended"
+        },
+        "fence_company": {"trigger": false},
+        "tree_service": {"trigger": false}
+      },
+
+      "L4_operational_context": {
+        "access_difficulty": {
+          "rear": "AD.2 — deck blocking basement windows is the constraint that created partial scope"
+        },
+        "sequencer_constraints": [
+          "Customer cherry-picks scope — booking hub must support per-window selection",
+          "Deck-blocked basement windows need specialized access (remove deck boards or WFP from below)"
+        ]
+      },
+
+      "L5_persona_signal": {
+        "likely_persona": "Retired Rita or Listing Linda",
+        "confidence": 0.40,
+        "signals": [
+          "Cherry-pick partial scope — cost-conscious or specific about what they want",
+          "Comped screens suggest relationship-building discount was applied",
+          "4-bed Good quality 2002 build — established family home"
+        ],
+        "gleam_on_candidate": "GO_BASIC — price-sensitive customer, discount may convert to recurring"
+      }
+    },
+
+    {
+      "address": "2168 Treetop Dr, Castle Rock, CO 80109",
+      "job_id": "J35",
+      "assessor": {
+        "agsf": 2337, "stories": 1, "bedrooms": 2, "quality": "Average",
+        "bsmt_finished": 173, "bsmt_unfinished": 1549, "garage_sqft": 690,
+        "year_built": 2016
+      },
+      "invoice": {
+        "total_panes": 34,
+        "total_invoice": 264.70,
+        "scope_type": "full",
+        "v7_prediction": 50.4,
+        "v7_flag": "RED",
+        "v7_error_pct": 48.2
+      },
+
+      "L1_physical_inventory": {
+        "fenestration": {
+          "total_cleanable_panes": 34,
+          "note": "SOLE RED JOB. Ranch with 2337sf AGSF but only 34 panes. V7 overestimates by +16.4 panes.",
+          "by_facade": {
+            "rear": {"hl1": 8, "total": 8, "confidence": 0.75, "note": "Covered porch with glass doors + gridded sidelights. Large windows but few individual pane units."},
+            "basement": {"bg0": 6, "total": 6, "note": "From invoice — basement panes present despite mostly unfinished (1549sf unfin, 173sf fin)"}
+          },
+          "sdl_grids_present": true,
+          "sdl_note": "Heavily gridded SDL windows — decorative grids make windows LOOK like more panes than they are. Each is still 1 cleanable pane."
+        },
+        "garage": {
+          "type": "attached_3car",
+          "door_style": "unknown_from_photo",
+          "note": "690sf garage = large 3-car. Not visible in the single rear photo."
+        },
+        "siding": {
+          "primary": {"material": "fiber_cement_lap", "code": "SDG.FIB", "coverage_pct": 90},
+          "accent": {"material": "stone_veneer", "code": "STN.MSV", "coverage_pct": 5, "location": "porch knee wall only"}
+        },
+        "roof": {
+          "material": "comp_shingle",
+          "pitch_estimate": "standard_5_12",
+          "condition_visible": "excellent — 2016 build"
+        },
+        "deck": {
+          "present": true,
+          "material": "composite",
+          "level": "HL1",
+          "condition": "excellent",
+          "note": "Elevated rear covered porch with stairs to grade. Stone knee wall base."
+        },
+        "walkout_basement": true,
+        "solar_panels": false,
+        "landscaping": {
+          "front": "not_visible",
+          "rear": "professional_maintained — flowers, planters, grills under covers, hot tub area",
+          "maintenance_level": "high"
+        }
+      },
+
+      "L2_gleam_services": {
+        "window_cleaning": {
+          "scope": "full_property",
+          "ext_only_panes": 34,
+          "note": "Low pane count for sqft — ranch uses volume for living space, not glass. All HL.1 + BG0.",
+          "estimated_ext_price_range": [180, 230],
+          "complete_care_estimate": [270, 340]
+        },
+        "house_wash": {
+          "candidate": true,
+          "gross_wall_sqft": 2200,
+          "note": "1-story ranch — all HL.1, fastest wash tier. Fiber cement primary, minimal stone. Should be a competitive bid.",
+          "estimated_price_range": [320, 420]
+        },
+        "gutter_cleaning": {
+          "candidate": true,
+          "est_linear_ft": 220,
+          "note": "1-story = long roofline relative to sqft. All HL.1 — fast, safe work.",
+          "estimated_price_range": [180, 240]
+        },
+        "pressure_wash": {
+          "candidate": true,
+          "surfaces": [
+            {"type": "driveway", "sqft": 700, "note": "3-car garage = large driveway"},
+            {"type": "patio/porch", "sqft": 200}
+          ],
+          "estimated_price_range": [200, 300]
+        },
+        "holiday_lighting": {
+          "candidate": true,
+          "roofline_lf_est": 220,
+          "complexity": "low — 1-story, simple roofline, all HL.1 install",
+          "note": "Ranch rooflines are the fastest holiday lighting installs. High-volume candidate."
+        },
+        "permanent_lighting": {
+          "candidate": true,
+          "trimlight_lf_est": 220,
+          "note": "Long roofline = high linear footage. All HL.1 install = fastest, safest permanent lighting job."
+        }
+      },
+
+      "L3_partner_triggers": {
+        "roofer": {
+          "trigger": false,
+          "note": "2016 build — roof is 10 years old. No visible issues."
+        },
+        "landscaper": {
+          "trigger": false,
+          "note": "Rear is beautifully maintained. May already have landscaper."
+        },
+        "interior_cleaner": {
+          "trigger": true,
+          "reason": "Customer bought int+ext package. High-maintenance homeowner. Natural cross-sell."
+        },
+        "hvac": {
+          "trigger": false,
+          "note": "2016 build — all systems relatively new."
+        }
+      },
+
+      "L4_operational_context": {
+        "access_difficulty": {
+          "all_facades": "AD.1 — single story, ground-accessible everything",
+          "basement": "AD.2 — walk-out but under elevated porch, restricted clearance"
+        },
+        "height_tiers_active": ["HL1", "BG0"],
+        "equipment_notes": "No ladder needed for any above-grade window. Poles only. BG0 basement windows may need short ladder for well access.",
+        "vehicle_staging": "Large driveway — 3-car width",
+        "sequencer_constraints": [
+          "ALL HL.1 — no ladder sharing benefit if bundled with gutters (gutters also HL.1)",
+          "Covered porch area — ensure rinse water drains off porch, not onto patio furniture",
+          "Under-porch basement windows — crawl access or WFP from grade"
+        ],
+        "estimated_crew": {
+          "windows_ext_only": {"techs": 1, "duration_hrs": 1.5, "note": "Fast job — all ground level"},
+          "house_wash": {"techs": 1, "duration_hrs": 2.0, "note": "1-story, all HL.1 — single tech can handle"},
+          "bundle_all_exterior": {"techs": 1, "duration_hrs": 4.0, "note": "Win+gut+wash = half-day single tech. Most profitable per-hour bundle."}
+        }
+      },
+
+      "L5_persona_signal": {
+        "likely_persona": "Retired Rita",
+        "confidence": 0.60,
+        "signals": [
+          "2-bedroom ranch — downsizer or empty-nester profile",
+          "Immaculate rear yard — gardener, entertainer, takes pride in property",
+          "Hot tub, covered grill area, flower planters — outdoor living investment",
+          "Bought int+ext package — wants the full treatment",
+          "High maintenance level despite Average quality grade"
+        ],
+        "maintenance_level": "very_high",
+        "price_sensitivity": "low — invests in home experience",
+        "gleam_on_candidate": "GO_PLUS — semi-annual service matches the property pride level. Strong candidate for Gleam-On Premium if partner services added.",
+        "upsell_path": "Window → Gleam-On Plus → add gutter quarterly → add holiday lighting → Trimlight consultation"
+      }
+    }
+
+  ]
+}
